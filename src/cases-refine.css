@@ -1,0 +1,39 @@
+/* Case register refinements for the fixed desktop workspace. */
+@media (min-width: 1280px) {
+  .cases-page .recent-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 0;
+  }
+
+  .cases-page .recent-item {
+    min-width: 0;
+    padding-right: 18px;
+    border-bottom: 0;
+  }
+
+  .cases-page .recent-item + .recent-item {
+    padding-left: 18px;
+    border-left: 1px solid #dbe3e1;
+  }
+
+  .cases-page .recent-item:nth-child(n + 4) {
+    display: none;
+  }
+
+  .cases-page .recent-item > div:nth-child(2) {
+    min-width: 0;
+  }
+
+  .cases-page .recent-item strong,
+  .cases-page .recent-item p {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .cases-page .recent-item time,
+  .cases-page .recent-item > svg {
+    flex: 0 0 auto;
+  }
+}

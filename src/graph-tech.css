@@ -1,0 +1,25 @@
+/* Dedicated dark analysis surface, intentionally separate from the pale document UI. */
+.graph-stage {
+  background: radial-gradient(circle at 50% 40%, #1b334b 0%, #102235 52%, #0c1b2b 100%);
+  border-top: 1px solid #2d4b64;
+}
+.graph-stage:after { background: linear-gradient(135deg,transparent 0 68%,rgba(122,103,212,.12) 68% 68.2%,transparent 68.2%); }
+.graph-stage:before { color: #7aa8bd; }
+.graph-stage .react-flow__controls { border-color: #36546c; box-shadow: 0 8px 22px rgba(0,0,0,.22); }
+.graph-stage .react-flow__controls-button { background: #14283d; border-color: #36546c; color: #c7ddeb; }
+.graph-stage .react-flow__controls-button:hover { background: #203c56; }
+.graph-stage .entity-node { background: #152a40; border-color: #3d627b; box-shadow: 0 10px 24px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.07); }
+.graph-stage .entity-node.entity-active { background: #1b2745; border-color: #9385ed; box-shadow: 0 0 0 2px rgba(147,133,237,.2), 0 10px 26px rgba(73,58,154,.35); }
+.graph-stage .entity-node .entity-kind { color: #82a9bd; }
+.graph-stage .entity-node strong { color: #ecf5fb; }
+.graph-stage .entity-node .entity-subtitle { color: #9eb8c8; }
+.graph-stage .entity-glyph, .graph-stage .entity-glyph.kind-case, .graph-stage .entity-glyph.kind-phone, .graph-stage .entity-glyph.kind-account, .graph-stage .entity-glyph.kind-location, .graph-stage .entity-glyph.kind-organization { background: #203b53; color: #b9d8e8; }
+.graph-stage .entity-glyph.kind-person { background: #4c2d45; color: #f2b8c8; }
+.graph-stage .entity-glyph.kind-account { background: #42354a; color: #dcc5f1; }
+.graph-stage .entity-glyph.kind-case { background: #1f4558; color: #99e0e7; }
+.graph-stage .graph-top-note { background: #182f46; border-color: #3a607a; color: #b8d9e7; }
+.graph-stage .graph-expand { background: #162c42; border-color: #56728a; color: #d9eaf3; box-shadow: 0 7px 18px rgba(0,0,0,.22); }
+.graph-stage .graph-expand:hover { background: #23445d; }
+.graph-stage .graph-legend { background: rgba(15,32,49,.88); border-color: #395a73; color: #b8d2e1; box-shadow: 0 7px 18px rgba(0,0,0,.2); }
+.graph-stage .graph-legend i { background: #7da6c1; }
+.graph-stage .graph-legend i.dashed { background: repeating-linear-gradient(90deg,#e2775a 0 5px,transparent 5px 8px); }

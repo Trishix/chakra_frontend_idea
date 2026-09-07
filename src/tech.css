@@ -1,0 +1,71 @@
+/* Technical operations finish: dark instrument rail, cool document canvas, disciplined cyan focus. */
+:root {
+  --tech-ink: #102238;
+  --tech-rail: #0c1a2a;
+  --tech-rail-soft: #152c43;
+  --tech-cyan: #27a9bd;
+  --tech-cyan-soft: #e0f3f6;
+  --tech-amber: #c88a38;
+}
+body { background: #edf2f6; }
+.app-main { background: linear-gradient(135deg,#f7fafc 0%,#edf2f6 60%,#e8eef4 100%); }
+.sidebar { background: linear-gradient(180deg,#0c1a2a 0%,#11253a 58%,#0b1929 100%); border-right-color: #27425d; color: #d7e5f0; }
+.brand span { color: #f3f7fb; }
+.brand:after { color: #70b9c5; }
+.workspace-label { color: #7da0b7; letter-spacing: .12em; }
+.sidebar nav { border-top: 1px solid rgba(139,183,207,.12); padding-top: 11px; }
+.nav-item { color: #a8bfd0; border-radius: 3px; }
+.nav-item:hover { background: #132e47; color: #e6f7f9; }
+.nav-item.active { background: #163a52; color: #d8f4f6; box-shadow: inset 3px 0 0 var(--tech-cyan), inset 0 1px 0 rgba(112,196,211,.12); }
+.nav-count { background: #214a61; color: #b7e6eb; }
+.sidebar-bottom { color: #a8bfd0; }
+.sidebar-bottom>button { color: #a8bfd0; }
+.sidebar-bottom>button:hover { background: #132e47; color: #e6f7f9; }
+.demo-label { border-top-color: rgba(139,183,207,.14); }
+.demo-symbol { color: #68b9c5; }
+.demo-label strong { color: #d9e9f2; }
+.demo-label span:not(.demo-symbol), .team-credit { color: #7e9caf; }
+.topbar { background: rgba(248,251,253,.92); border-bottom-color: #c9d8e3; box-shadow: 0 1px 0 rgba(28,69,94,.05),0 6px 18px rgba(23,58,82,.05); }
+.topbar-context { color: #6a8297; }
+.topbar-context strong { color: var(--tech-ink); }
+.global-search { color: #587189; }
+.global-search kbd { color: #2b7888; border-color: #b6d3db; background: #e8f4f6; }
+.profile-button { color: var(--tech-ink); }
+.avatar { background: #e3f2f5; color: #29788a; border-color: #afd4dc; }
+.page-title h1, .case-heading h1 { color: var(--tech-ink); letter-spacing: -.9px; }
+.page-title h1:before { background: var(--tech-cyan); box-shadow: 0 0 0 3px #d9f0f3; }
+.page-title p { color: #60788e; }
+.button { border-radius: 3px; border-color: #b9cad7; color: #29425b; }
+.button:hover:not(:disabled) { background: #eff7f9; border-color: #82bdc8; }
+.button.primary { background: #126c7b; border-color: #126c7b; }
+.button.primary:hover:not(:disabled) { background: #0c5967; }
+.text-button { color: #12748a; }
+.register, .recent-section, .workbench, .investigation-filters, .report-main { border-color: #c2d2de; box-shadow: 0 14px 34px rgba(33,63,86,.08); }
+.register-tools, .recent-section { background: rgba(251,253,254,.86); }
+.case-table thead, .lead-tabs, .view-tabs { background: #e5edf3; }
+.case-table thead th { color: #60778e; }
+.case-table tbody tr:hover { background: #f2f8fa; }
+.case-title-link strong, .continue-panel h2, .lead-row strong, .evidence-section h2 { color: var(--tech-ink); }
+.case-title-link:hover strong, .recent-item:hover strong { color: #117b8d; }
+.continue-panel { background: linear-gradient(155deg,#e2f1f4 0%,#f1f5f8 100%); border-top-color: var(--tech-cyan); }
+.continue-panel .panel-kicker { color: #17778a; }
+.investigation { background: linear-gradient(180deg,#f3f7fa 0,#edf2f6 190px); }
+.investigation-filters { background: rgba(252,254,255,.88); }
+.lead-row.selected { background: linear-gradient(105deg,#e0f1f3,#f2f6f8); box-shadow: inset 3px 0 0 var(--tech-cyan); }
+.canvas-caption { color: #24415c; background: linear-gradient(90deg,#f1f7f9,#fcfdfe); }
+.evidence-top { background: linear-gradient(90deg,#e2f1f4,#f7fafc); color: #18344f; }
+.source-tabs button.active { background: var(--tech-cyan-soft); border-color: #8ecbd4; color: #126d7c; }
+.review-section { background: linear-gradient(180deg,#edf7f8,#edf3f7); }
+.review-section .button.primary { background: #126c7b; border-color: #126c7b; }
+.reports-page .page-title, .report-compose-heading, .report-preview-toolbar { background: linear-gradient(90deg,transparent,#e8f3f6); }
+.report-list { background: rgba(231,239,245,.82); }
+.report-paper { border-top-color: var(--tech-cyan); }
+.status-active, .status-reviewed { background: #e3f3f1; border-color: #b8ded9; color: #206d68; }
+.status-unreviewed { background: #e3edf5; border-color: #c9d8e4; color: #526d85; }
+.status-under-review, .status-correction { background: #faf0df; border-color: #e9d0a0; color: #956425; }
+.status-dismissed, .status-closed { background: #f3e8eb; border-color: #e2cfd5; color: #875365; }
+.reference { color: #496783; }
+.notice { border-color: #dfbe82; background: #fff8e9; }
+@media (max-width: 767px) {
+  .sidebar { box-shadow: 12px 0 30px rgba(12,26,42,.2); }
+}

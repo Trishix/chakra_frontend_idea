@@ -1,0 +1,260 @@
+/* Graph workbench: compact, evidence-led, and visually separate from the case UI. */
+.graph-stage {
+  isolation: isolate;
+  background: #202c39;
+}
+
+.graph-stage:before,
+.graph-stage:after {
+  display: none;
+}
+
+.graph-stage .react-flow__background {
+  opacity: .58;
+}
+
+.graph-hud {
+  position: absolute;
+  z-index: 4;
+  top: 13px;
+  left: 13px;
+  right: 13px;
+  min-height: 43px;
+  padding: 8px 10px 8px 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border: 1px solid #405260;
+  border-radius: 3px;
+  background: rgba(35, 49, 61, .94);
+  color: #eef3f4;
+  pointer-events: none;
+}
+
+.graph-hud > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.graph-hud strong {
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+
+.graph-hud > div:first-child > span {
+  color: #9fb1bb;
+  font-size: 8px;
+  line-height: 1.2;
+}
+
+.graph-stage .graph-hud .graph-legend {
+  position: static;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #b9c8ce;
+  font-size: 8px;
+}
+
+.graph-stage .graph-hud .graph-legend > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.graph-stage .graph-hud .graph-legend i {
+  width: 18px;
+  height: 1px;
+  border: 0;
+  background: #8fb5c4;
+}
+
+.graph-stage .graph-hud .graph-legend i.dashed {
+  height: 1px;
+  background: repeating-linear-gradient(90deg, #d36b53 0 5px, transparent 5px 8px);
+}
+
+.graph-stage .entity-node {
+  position: relative;
+  width: 186px;
+  min-width: 186px;
+  min-height: 70px;
+  padding: 11px 12px;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  column-gap: 10px;
+  align-items: center;
+  border: 1px solid #8fa0a8;
+  border-radius: 3px;
+  background: #f7f9f8;
+  box-shadow: 0 6px 14px rgba(4, 12, 18, .18);
+}
+
+.graph-stage .entity-node.entity-active {
+  border-color: #9aaab1;
+  background: #f7f9f8;
+  box-shadow: 0 6px 14px rgba(4, 12, 18, .18);
+}
+
+.graph-stage .entity-node.entity-bridge {
+  border-color: #d36b53;
+  background: #f7f9f8;
+  box-shadow: inset 3px 0 0 #d36b53, 0 7px 17px rgba(4, 12, 18, .24);
+}
+
+.graph-stage .entity-node.entity-selected {
+  border-color: #f08a70;
+  background: #f7f9f8;
+  box-shadow: 0 0 0 2px rgba(240, 138, 112, .28), 0 7px 17px rgba(4, 12, 18, .24);
+}
+
+.graph-stage .entity-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.graph-stage .entity-node .entity-kind {
+  margin: 0 0 4px;
+  color: #6c7c84;
+  font-size: 7px;
+  line-height: 1;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+
+.graph-stage .entity-node strong {
+  max-width: 100%;
+  overflow: hidden;
+  color: #162938;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.graph-stage .entity-node .entity-subtitle {
+  max-width: 100%;
+  margin-top: 4px;
+  overflow: hidden;
+  color: #65747b;
+  font-size: 8px;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.graph-stage .entity-glyph,
+.graph-stage .entity-glyph.kind-case,
+.graph-stage .entity-glyph.kind-phone,
+.graph-stage .entity-glyph.kind-account,
+.graph-stage .entity-glyph.kind-location,
+.graph-stage .entity-glyph.kind-organization,
+.graph-stage .entity-glyph.kind-person {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #cad6d4;
+  border-radius: 2px;
+  background: #e6eeec;
+  color: #245f59;
+}
+
+.graph-stage .entity-node.entity-active .entity-glyph {
+  background: #e6eeec;
+  color: #245f59;
+}
+
+.graph-stage .entity-node.entity-bridge .entity-glyph {
+  border-color: #efc0b3;
+  background: #f6e4df;
+  color: #a84d39;
+}
+
+.bridge-label {
+  position: absolute;
+  top: -9px;
+  right: 8px;
+  padding: 2px 5px;
+  border: 1px solid #d36b53;
+  border-radius: 2px;
+  background: #202c39;
+  color: #ffc0b0;
+  font-size: 7px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: .05em;
+}
+
+.graph-stage .react-flow__handle {
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  min-height: 6px;
+  border: 1px solid #f7f9f8;
+  background: #627985;
+}
+
+.graph-stage .entity-bridge .react-flow__handle {
+  background: #d36b53;
+}
+
+.graph-stage .react-flow__edge-label {
+  letter-spacing: .01em;
+}
+
+.graph-stage .react-flow__edge.selected .react-flow__edge-path {
+  stroke: #f08a70 !important;
+  stroke-width: 3px !important;
+}
+
+.graph-help {
+  position: absolute;
+  z-index: 4;
+  left: 52px;
+  bottom: 15px;
+  color: #95a8b2;
+  font-size: 8px;
+  line-height: 1.2;
+  pointer-events: none;
+}
+
+.graph-stage .graph-expand {
+  right: 13px;
+  bottom: 12px;
+  min-height: 29px;
+  padding: 6px 9px;
+  border-color: #5b6f7b;
+  background: #273744;
+  color: #ecf2f3;
+  font-size: 8px;
+}
+
+.graph-stage .react-flow__controls {
+  left: 13px !important;
+  bottom: 12px !important;
+  border: 1px solid #526571 !important;
+  border-radius: 3px;
+}
+
+.graph-stage .react-flow__controls-button {
+  width: 27px !important;
+  height: 27px !important;
+  border-color: #526571 !important;
+  background: #273744 !important;
+  color: #e5edef !important;
+}
+
+@media (max-width: 767px) {
+  .graph-hud { right: 10px; left: 10px; }
+  .graph-help { display: none; }
+}

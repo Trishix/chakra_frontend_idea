@@ -1,0 +1,14 @@
+/* The graph is intentionally a contrasting evidence layer, not another teal UI panel. */
+.graph-stage { --graph-coral: #b85f4c; --graph-plum: #6251ae; }
+.graph-stage .graph-top-note { background: #f5e8e5; border-color: #e3c2ba; color: #7f4036; }
+.graph-stage .graph-expand { border-color: #c5b9e3; color: #50418e; }
+.graph-stage .entity-node { border-color: #d5b1a8; }
+.graph-stage .entity-node.entity-active { border-color: var(--graph-plum); box-shadow: 0 0 0 2px #e0daf4, 0 10px 23px rgba(91,72,153,.18); }
+.graph-stage .entity-glyph { background: #f5e8e5; color: #a14e40; }
+.graph-stage .entity-glyph.kind-case { background: #ebe6f7; color: #6251ae; }
+.graph-stage .entity-glyph.kind-phone { background: #f4e6e2; color: #b85f4c; }
+.graph-stage .entity-glyph.kind-account { background: #e9e4f6; color: #6251ae; }
+.graph-stage .entity-glyph.kind-location { background: #f3e8e4; color: #a34d41; }
+.graph-stage .graph-legend { color: #66517d; }
+.graph-stage .graph-legend i { background: #6251ae; }
+.graph-stage .graph-legend i.dashed { background: repeating-linear-gradient(90deg,#b85f4c 0 5px,transparent 5px 8px); }

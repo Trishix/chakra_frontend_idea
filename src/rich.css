@@ -1,0 +1,80 @@
+/* Chakra presentation layer: more visual depth while retaining an administrative, NIC-facing tone. */
+:root {
+  --canvas: #f3f6f5;
+  --ink-soft: #53636a;
+  --line-strong: #cbd8d4;
+  --teal-deep: #0f5a50;
+  --mint-wash: #e5f1ed;
+  --ochre: #b97825;
+}
+body { background: var(--canvas); }
+.app-main { background: linear-gradient(150deg, #f8faf9 0%, var(--canvas) 48%, #eef4f2 100%); }
+.sidebar { background: linear-gradient(180deg, #edf5f2 0%, #f7faf9 64%, #e9f2ef 100%); border-right-color: #c8d8d3; }
+.brand { position: relative; }
+.brand:after { content: 'FIELD INTELLIGENCE'; position: absolute; left: 64px; bottom: 10px; font-size: 8px; letter-spacing: .14em; color: #6b8b83; }
+.brand span { color: var(--teal-deep); font-weight: 600; }
+.topbar { background: rgba(255,255,255,.86); box-shadow: 0 1px 0 rgba(42,82,72,.03), 0 8px 24px rgba(49,77,68,.04); }
+.page-title { padding-bottom: 20px; border-bottom: 1px solid #d6e2de; }
+.page-title h1 { color: #173b37; font-size: 31px; }
+.page-title h1:before { content: ''; display: inline-block; width: 5px; height: 23px; margin: 0 12px 0 0; vertical-align: -2px; background: var(--teal); border-radius: 2px; }
+.case-tabs button span { box-shadow: inset 0 0 0 1px rgba(35,91,77,.08); }
+.register { border-color: var(--line-strong); box-shadow: 0 12px 30px rgba(35,71,62,.07); }
+.register-tools { background: linear-gradient(90deg,#fff,#f9fcfb); }
+.case-table thead { background: #edf4f1; }
+.case-table tbody tr:hover { background: #f2f9f6; }
+.case-title-link strong { color: #1e4a42; }
+.continue-panel { padding: 23px 20px; border: 1px solid #bcd4cc; border-top: 4px solid var(--teal); border-radius: 6px; background: linear-gradient(165deg,#e4f2ed 0%,#f9fcfb 65%); box-shadow: 0 12px 28px rgba(29,83,68,.08); }
+.continue-panel h2 { color: #17483f; font-size: 22px; }
+.continue-panel .panel-kicker { color: var(--teal-deep); font-weight: 600; }
+.recent-section { margin-top: 44px; padding: 24px 26px 13px; border: 1px solid #d1dfda; border-radius: 6px; background: rgba(255,255,255,.72); box-shadow: 0 8px 24px rgba(45,75,66,.04); }
+.recent-section .section-heading { border-bottom: 1px solid #dae5e1; padding-bottom: 16px; }
+.recent-item { border-bottom-color: #e1eae7; }
+.activity-icon { background: #e3f1ed; border-color: #bdd8ce; color: var(--teal-deep); }
+.investigation { background: linear-gradient(180deg,#f6faf8 0,#f3f6f5 190px); }
+.investigation-title { padding-bottom: 21px; border-bottom: 1px solid #cddbd6; }
+.case-heading h1 { color: #173f39; font-size: 27px; }
+.investigation-filters { padding: 13px 14px; border: 1px solid #d1dfdb; border-radius: 6px; background: rgba(255,255,255,.82); box-shadow: 0 7px 18px rgba(45,80,68,.045); }
+.workbench { border-color: #bfd2cb; box-shadow: 0 16px 36px rgba(35,76,64,.09); }
+.lead-panel { background: #f8fbfa; }
+.lead-tabs { background: #edf5f2; border-bottom-color: #cbdcd6; }
+.lead-row.selected { background: linear-gradient(105deg,#e6f4ef,#f6fbf9); }
+.lead-row strong { color: #17493f; }
+.canvas-panel { background: #fbfdfc; }
+.view-tabs { background: #edf5f2; border-bottom-color: #c7d8d1; }
+.view-tabs button.active { color: #0e6558; }
+.canvas-caption { background: linear-gradient(90deg,#f8fcfa,#fff); border-bottom-color: #d6e3df; font-weight: 600; color: #285b51; }
+.graph-stage { background: radial-gradient(circle at 20% 20%,#fff 0,#f8fcfb 46%,#eff6f3 100%); }
+.graph-stage:before { content: 'CASE CONNECTION MAP'; position: absolute; left: 18px; top: 16px; z-index: 4; font-size: 9px; letter-spacing: .15em; color: #78968c; font-weight: 600; pointer-events: none; }
+.graph-top-note { background: #e3f2ec; border-color: #c0d9cf; color: #1f6154; }
+.graph-expand { background: #fff; border-color: #9dc3b6; box-shadow: 0 4px 12px rgba(34,87,72,.1); }
+.entity-node { border-color: #a9cfc2; box-shadow: 0 7px 18px rgba(51,95,82,.12); }
+.entity-node.entity-active { border-color: #238773; box-shadow: 0 0 0 2px #cae8de, 0 9px 21px rgba(31,102,84,.2); }
+.entity-glyph { background: #e4f3ee; color: #1d7767; }
+.entity-node { min-width: 176px; border-radius: 8px; padding: 11px 13px; background: rgba(255,255,255,.95); }
+.entity-node .entity-kind { color: #749087; letter-spacing: .08em; font-size: 9px; }
+.entity-node strong { color: #1d5148; font-size: 12px; }
+.entity-node .entity-subtitle { color: #687c75; font-size: 10px; }
+.graph-legend { background: rgba(255,255,255,.84); border: 1px solid #d1e0db; border-radius: 5px; padding: 7px 9px; box-shadow: 0 4px 12px rgba(36,79,67,.06); }
+.graph-legend i { background: #167d6b; }
+.graph-legend i.dashed { background: repeating-linear-gradient(90deg,#c48636 0 5px,transparent 5px 8px); }
+.evidence-panel { background: #f6faf8; }
+.evidence-top { background: linear-gradient(90deg,#e6f2ed,#f7fbfa); border-bottom-color: #c6d8d1; color: #174b41; font-weight: 600; }
+.evidence-section { border-bottom-color: #d0dfda; }
+.evidence-section h2 { color: #17483f; }
+.source-tabs button.active { background: #dff0e9; border-color: #9cc7b8; color: #145e51; }
+.source-excerpt blockquote { background: #f0f6e9; border-left-color: #d19c4e; color: #425445; }
+.review-section { background: linear-gradient(180deg,#f4faf7,#eaf4ef); }
+.review-section .button.primary { box-shadow: 0 5px 12px rgba(18,104,88,.22); }
+.reports-page .page-title { background: linear-gradient(90deg,transparent,#edf6f2); }
+.report-list { background: rgba(240,247,244,.7); border-right-color: #cadbd5; }
+.report-main { border: 1px solid #cdded8; box-shadow: 0 12px 28px rgba(35,74,63,.07); }
+.report-compose-heading, .report-preview-toolbar { background: linear-gradient(90deg,#e7f3ee,#f8fbfa); border-bottom-color: #cadbd5; }
+.report-paper { box-shadow: 0 12px 30px rgba(38,69,57,.12); border-color: #cad9d3; }
+.notice { border-color: #e3c58f; background: #fff8e9; }
+@media (max-width: 767px) {
+  .brand:after { display: none; }
+  .page-title h1 { font-size: 27px; }
+  .recent-section { padding: 17px 14px 5px; }
+  .investigation-filters { background: #fff; }
+  .workbench { box-shadow: 0 8px 22px rgba(35,76,64,.08); }
+}

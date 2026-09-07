@@ -1,0 +1,72 @@
+/* Final palette pass: civic navy, evidence teal, and restrained caution accents. */
+:root {
+  --civic-navy: #182b42;
+  --civic-indigo: #53648b;
+  --civic-saffron: #c68132;
+  --civic-rose: #9c5b67;
+}
+.sidebar {
+  background: linear-gradient(180deg, #eaf1f5 0%, #f7faf9 57%, #edf1f7 100%);
+  border-right-color: #c7d3df;
+}
+.brand span { color: var(--civic-navy); }
+.brand:after { color: #72829d; }
+.workspace-label { color: #677890; letter-spacing: .04em; }
+.nav-item { color: #53647a; }
+.nav-item.active { color: var(--civic-navy); background: #e1e9f2; box-shadow: inset 3px 0 0 #2b7c73; }
+.nav-count { background: #d6e2ef; color: #3f5874; }
+.topbar-context strong { color: var(--civic-navy); }
+.topbar-context { color: #718097; }
+.page-title h1, .case-heading h1 { color: var(--civic-navy); }
+.page-title h1:before { background: linear-gradient(180deg,#2b7c73,#c68132); }
+.page-title p { letter-spacing: .01em; }
+.case-tabs button.selected { color: var(--civic-navy); }
+.case-tabs button.selected:after { background: linear-gradient(90deg,#2b7c73,#53648b); }
+.register, .recent-section, .workbench, .investigation-filters, .report-main { border-radius: 8px; }
+.case-table thead, .lead-tabs, .view-tabs { background: #eaf0f5; }
+.case-table tbody tr:hover { background: #f2f6fa; }
+.case-title-link strong, .continue-panel h2, .lead-row strong, .evidence-section h2 { color: var(--civic-navy); }
+.continue-panel { border-top-color: #2b7c73; background: linear-gradient(155deg,#e3f0ed 0%,#f2f5fa 100%); }
+.continue-panel .panel-kicker { color: #24675f; }
+.recent-section { background: rgba(255,255,255,.8); }
+.recent-section .section-heading h2 { color: var(--civic-navy); }
+.investigation { background: linear-gradient(180deg,#f5f8fb 0,#f3f6f5 190px); }
+.investigation-filters { box-shadow: 0 8px 20px rgba(30,55,80,.06); }
+.lead-tabs button.active, .view-tabs button.active { color: #1a5d65; }
+.lead-row.selected { background: linear-gradient(105deg,#e5f1ef,#f3f6fb); box-shadow: inset 3px 0 0 #2b7c73; }
+.canvas-caption { color: #263c59; background: linear-gradient(90deg,#f4f8fb,#fff); }
+.graph-stage { background: radial-gradient(circle at 20% 20%,#fff 0,#f9fbfc 45%,#edf2f7 100%); }
+.graph-stage:after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(135deg,transparent 0 68%,rgba(83,100,139,.06) 68% 68.2%,transparent 68.2%); z-index: 0; }
+.graph-stage .react-flow { z-index: 1; }
+.graph-top-note { background: #e5edf5; border-color: #c4d3e2; color: #425d7d; }
+.graph-expand { border-color: #aebfd0; color: #263e5b; }
+.entity-node { border-color: #b5c6d3; box-shadow: 0 8px 18px rgba(31,56,83,.13); }
+.entity-node.entity-active { border-color: #237b71; box-shadow: 0 0 0 2px #c9e5df, 0 10px 23px rgba(30,88,81,.2); }
+.entity-node .entity-kind { color: #6c7b8d; }
+.entity-node strong { color: #1c3854; }
+.entity-glyph { background: #e4edf5; color: #426788; }
+.entity-node .kind-person, .entity-glyph.kind-person { background: #f2e9ef; color: #92566c; }
+.entity-glyph.kind-phone { background: #e6eaf5; color: #4f6091; }
+.entity-glyph.kind-account { background: #f8eddc; color: #aa6e28; }
+.entity-glyph.kind-location { background: #e9f0df; color: #58764b; }
+.entity-glyph.kind-case { background: #e1f0ed; color: #24756b; }
+.entity-glyph.kind-organization { background: #ece9f5; color: #66578e; }
+.graph-legend { color: #4b6077; }
+.evidence-top { background: linear-gradient(90deg,#e7eef5,#f8fafc); color: var(--civic-navy); }
+.source-tabs button.active { background: #e2efed; border-color: #9dc9bf; color: #185e61; }
+.source-excerpt blockquote { background: #f5f1e8; border-left-color: var(--civic-saffron); }
+.review-section { background: linear-gradient(180deg,#f1f7f6,#edf3f8); }
+.review-section .button.primary { background: #1d6f68; border-color: #1d6f68; }
+.report-list { background: rgba(237,242,247,.76); }
+.report-compose-heading, .report-preview-toolbar { background: linear-gradient(90deg,#e6edf5,#f8fafc); }
+.report-paper { border-top: 4px solid #2b7c73; }
+.status-active, .status-reviewed { background: #e7f2ee; border-color: #c7ded5; color: #23675b; }
+.status-under-review, .status-correction { background: #fbf0de; border-color: #ebd5aa; color: #956222; }
+.status-unreviewed { background: #e9eef5; border-color: #d3dce8; color: #526681; }
+.status-dismissed, .status-closed { background: #f2e9ed; border-color: #e3d2d8; color: #895563; }
+.conflict-tag { color: var(--civic-rose); }
+.notice { border-color: #e3c28b; background: #fff8e9; }
+@media (max-width: 767px) {
+  .nav-item.active { box-shadow: inset 3px 0 0 #2b7c73; }
+  .page-title h1 { font-size: 27px; }
+}

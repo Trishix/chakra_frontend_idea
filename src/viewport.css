@@ -1,0 +1,74 @@
+/* Desktop frame: investigation work happens inside the window, not below it. */
+@media (min-width: 1280px) {
+  html, body, #root { height: 100%; overflow: hidden; }
+  .app-shell, .app-main { height: 100dvh; overflow: hidden; }
+  #main-content { height: calc(100dvh - 64px); overflow: hidden; }
+
+  .page.cases-page,
+  .page.reports-page { height: 100%; min-height: 0; overflow: hidden; }
+  .page.cases-page { display: flex; flex-direction: column; padding: 25px 32px 17px; }
+  .cases-page .page-title { flex: 0 0 auto; margin-bottom: 13px; padding-bottom: 15px; }
+  .cases-page .case-tabs { flex: 0 0 auto; margin-bottom: 12px; }
+  .cases-page .register-layout { flex: 1 1 auto; min-height: 0; }
+  .cases-page .register { min-height: 0; display: flex; flex-direction: column; }
+  .cases-page .register .table-scroll { min-height: 0; flex: 1 1 auto; }
+  .cases-page .case-table td { padding-top: 14px; padding-bottom: 14px; }
+  .cases-page .register-foot { padding-top: 10px; padding-bottom: 10px; }
+  .cases-page .continue-panel { padding-top: 13px; }
+  .cases-page .panel-kicker { margin-bottom: 15px; }
+  .cases-page .continue-panel > p { margin: 9px 0 12px; line-height: 1.5; }
+  .cases-page .summary-dl { margin-bottom: 12px; }
+  .cases-page .summary-dl > div { padding: 6px 0; }
+  .cases-page .recent-section { flex: 0 0 142px; min-height: 0; margin-top: 13px; padding: 13px 20px 0; overflow: hidden; }
+  .cases-page .recent-list { margin-top: 8px; border-top: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 24px; }
+  .cases-page .recent-item { min-width: 0; padding: 8px 0; gap: 10px; }
+  .cases-page .recent-item p { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cases-page .recent-item time { margin-left: auto; white-space: nowrap; }
+
+  .investigation { height: 100%; min-height: 0; overflow: hidden; padding-bottom: 0; }
+  .investigation-title { flex: 0 0 auto; }
+  .investigation-filters { flex: 0 0 auto; }
+  .investigation .workbench { min-height: 0; height: calc(100% - 236px); }
+  .investigation .canvas-panel, .investigation .evidence-panel, .investigation .lead-panel { min-height: 0; }
+  .investigation .graph-stage { min-height: 0; }
+  .investigation .evidence-panel { overflow: hidden; }
+  .investigation .evidence-top { height: 35px; padding-left: 14px; padding-right: 14px; }
+  .investigation .evidence-section { padding: 10px 15px; }
+  .investigation .evidence-section .panel-title { margin-bottom: 7px; }
+  .investigation .evidence-section h2 { font-size: 16px; line-height: 1.25; }
+  .investigation .evidence-section > p { font-size: 10px; line-height: 1.45; }
+  .investigation .source-tabs { gap: 4px; margin-top: 8px; }
+  .investigation .source-tabs button { padding: 5px 7px; font-size: 9px; }
+  .investigation .source-excerpt blockquote { margin: 7px 0; padding: 8px; font-size: 10px; line-height: 1.45; }
+  .investigation .review-section .button { min-height: 32px; }
+  .investigation .review-section .review-secondary { margin-top: 7px; }
+
+  .reports-page { display: flex; flex-direction: column; padding: 25px 32px 17px; }
+  .reports-page .page-title { flex: 0 0 auto; margin-bottom: 13px; padding-bottom: 15px; }
+  .reports-page .reports-layout { flex: 1 1 auto; min-height: 0; }
+  .reports-page .report-list, .reports-page .report-main { min-height: 0; overflow: hidden; }
+  .reports-page .report-main { display: flex; flex-direction: column; }
+  .reports-page .report-form { overflow: auto; }
+  .reports-page .report-paper { min-height: 0; overflow: auto; }
+}
+
+@media (min-width: 1280px) and (max-height: 850px) {
+  .page.cases-page, .page.reports-page { padding-top: 16px; padding-bottom: 10px; }
+  .cases-page .page-title, .reports-page .page-title { margin-bottom: 8px; padding-bottom: 9px; }
+  .cases-page .page-title h1, .reports-page .page-title h1 { font-size: 26px; }
+  .cases-page .page-title p, .reports-page .page-title p { margin-top: 4px; }
+  .cases-page .case-tabs { margin-bottom: 8px; }
+  .cases-page .case-tabs button { padding-bottom: 9px; }
+  .cases-page .case-table th { padding-top: 8px; padding-bottom: 8px; }
+  .cases-page .case-table td { padding-top: 9px; padding-bottom: 9px; }
+  .cases-page .recent-section { flex-basis: 112px; margin-top: 8px; padding-top: 9px; }
+  .cases-page .recent-item { padding: 5px 0; }
+  .investigation .workbench { height: calc(100% - 218px); }
+  .investigation .investigation-title { padding-bottom: 12px; }
+  .investigation .case-heading h1 { font-size: 23px; }
+  .investigation .investigation-filters { padding-top: 8px; padding-bottom: 8px; }
+}
+
+@media (max-width: 1279px) {
+  #main-content { min-height: calc(100dvh - 64px); }
+}

@@ -1,6 +1,6 @@
-# Chakra frontend prototype
+# CI Intel frontend prototype
 
-Approved scope: three main screens (Cases, Investigation, Reports); fictional records; local interactions; no backend. Product Chakra, team dot_gitignore. Delivery /Users/trishitswarnakar/Documents/chakra.
+Approved scope: three main screens (Cases, Investigation, Reports); fictional records; local interactions; no backend. Product CI Intel, team dot_gitignore. Delivery: project workspace.
 
 Build locally in an isolated temporary directory and copy the verified project to its requested destination. No existing repository is modified.
 

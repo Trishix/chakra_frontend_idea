@@ -8,14 +8,14 @@
 \definecolor{teal}{HTML}{0D7468}
 \definecolor{coral}{HTML}{B95843}
 \definecolor{paper}{HTML}{F4F7F6}
-\hypersetup{colorlinks=true,linkcolor=teal,urlcolor=teal,pdftitle={Chakra Feasibility and Idea Counter Questions}}
-\pagestyle{fancy}\fancyhf{}\lhead{\textcolor{navy}{CHAKRA}}\rhead{\textcolor{teal}{dot\_gitignore}}\cfoot{\thepage}\setlength{\headheight}{14pt}
+\hypersetup{colorlinks=true,linkcolor=teal,urlcolor=teal,pdftitle={CI Intel Feasibility and Idea Counter Questions}}
+\pagestyle{fancy}\fancyhf{}\lhead{\textcolor{navy}{CI Intel}}\rhead{\textcolor{teal}{dot\_gitignore}}\cfoot{\thepage}\setlength{\headheight}{14pt}
 \setlist[enumerate]{leftmargin=*,itemsep=8pt,topsep=5pt}
 \newcommand{\qa}[2]{\item \textbf{\color{navy}Q: #1}\\[-1pt]{\color{coral}\textit{Answer:}} #2}
 \newcommand{\note}[1]{\vspace{4pt}\noindent\colorbox{paper}{\parbox{\dimexpr\linewidth-2\fboxsep}{\small\textbf{How to answer:} #1}}\vspace{6pt}}
 \begin{document}
 \begin{center}
-{\Huge\bfseries\color{navy}Chakra}\\[3pt]
+{\Huge\bfseries\color{navy}CI Intel}\\[3pt]
 {\Large Feasibility, Idea and Impact Counter Questions}\\[5pt]
 {\normalsize Smart India Hackathon SIH26189 \textbar\ Team dot\_gitignore}
 \end{center}
@@ -23,16 +23,16 @@
 
 \section{Problem, users and need}
 \begin{enumerate}
-\qa{What exact problem does Chakra solve?}{Chakra helps authorized investigators discover possible links between women-safety cases that are difficult to see across separate records. It organizes evidence by time, source and case, then presents a reviewable lead instead of making an accusation.}
+\qa{What exact problem does CI Intel solve?}{CI Intel helps authorized investigators discover possible links between women-safety cases that are difficult to see across separate records. It organizes evidence by time, source and case, then presents a reviewable lead instead of making an accusation.}
 \qa{Why is this a real problem for the current workflow?}{Important clues are split across FIRs, statements, call events, transactions and registries. Manual comparison is slow, repeated identities are easy to miss, and an analyst may not be able to explain how a cross-case connection was found.}
 \qa{Who is the primary user?}{The primary user is an authorized investigator or analyst working on a case. Supervisors and report reviewers are secondary users who check decisions, access scope and evidence provenance.}
-\qa{Why focus on women-safety cases?}{Women-safety investigations can involve repeat patterns, shared contacts, unsafe locations and coordinated assistance. Chakra is designed around those investigative needs while keeping survivor identity protected and avoiding automated guilt labels.}
-\qa{What is the one-line value proposition?}{Chakra turns fragmented, time-stamped case evidence into explainable cross-case leads that an authorized officer can verify, accept, reject or correct.}
-\qa{What makes the idea different from a normal case-management system?}{A case-management system stores and searches records. Chakra adds a temporal relationship layer that makes links between cases visible, shows the evidence path, and separates observed facts from inferred suggestions.}
+\qa{Why focus on women-safety cases?}{Women-safety investigations can involve repeat patterns, shared contacts, unsafe locations and coordinated assistance. CI Intel is designed around those investigative needs while keeping survivor identity protected and avoiding automated guilt labels.}
+\qa{What is the one-line value proposition?}{CI Intel turns fragmented, time-stamped case evidence into explainable cross-case leads that an authorized officer can verify, accept, reject or correct.}
+\qa{What makes the idea different from a normal case-management system?}{A case-management system stores and searches records. CI Intel adds a temporal relationship layer that makes links between cases visible, shows the evidence path, and separates observed facts from inferred suggestions.}
 \qa{Why is a graph the right representation?}{A graph represents people, phones, accounts, places, events and cases as entities with relationships. It makes bridge entities, communities and repeated patterns easier to inspect than a list of documents.}
 \qa{Why is time essential to the idea?}{The same relationship can mean different things before and after an incident. Every event and edge therefore carries a timestamp or time range so an investigator can ask whether a connection existed at the relevant moment.}
-\qa{What does Chakra actually recommend?}{It recommends a case-link lead such as a shared masked phone, a transaction recipient or a repeated location pattern. The recommendation includes the relationship, confidence, source references and a route for human review.}
-\qa{Does Chakra identify a criminal?}{No. It identifies an investigative lead, never guilt. The interface labels observed evidence and AI-inferred relationships separately and requires an officer to review the source before a lead can appear in an auditable report.}
+\qa{What does CI Intel actually recommend?}{It recommends a case-link lead such as a shared masked phone, a transaction recipient or a repeated location pattern. The recommendation includes the relationship, confidence, source references and a route for human review.}
+\qa{Does CI Intel identify a criminal?}{No. It identifies an investigative lead, never guilt. The interface labels observed evidence and AI-inferred relationships separately and requires an officer to review the source before a lead can appear in an auditable report.}
 \end{enumerate}
 
 \section{Feasibility and delivery}
@@ -44,8 +44,8 @@
 \qa{How will the system work with Indian languages?}{The ingestion plan supports OCR and multilingual NLP for Hindi, English and regional text. The first release should measure language-specific extraction quality and route low-confidence text to an officer rather than silently normalizing it.}
 \qa{What if the department cannot share live data during judging?}{The demo uses a synthetic corpus that preserves the structure of the problem without exposing personal information. The same schema can later accept an approved data extract through an on-premise connector.}
 \qa{How will success be measured?}{Measure extraction F1, entity-resolution precision and recall, case-link Precision@K and Recall@K, provenance coverage, false-positive rate, review time and officer override rate. A useful lead must be both accurate enough and explainable enough to act on.}
-\qa{What is the expected benefit to an investigator?}{Chakra reduces time spent searching across records and gives the investigator a direct route from a graph relationship to the exact supporting source. It improves prioritization while leaving the investigative decision with the officer.}
-\qa{How will you prove that the idea is not just a visual demo?}{The prototype uses deterministic fixtures, a defined graph schema, explicit evidence references, lead states and tests for state transitions. A next pilot would replay labeled cases and compare Chakra's ranked leads with expert annotations.}
+\qa{What is the expected benefit to an investigator?}{CI Intel reduces time spent searching across records and gives the investigator a direct route from a graph relationship to the exact supporting source. It improves prioritization while leaving the investigative decision with the officer.}
+\qa{How will you prove that the idea is not just a visual demo?}{The prototype uses deterministic fixtures, a defined graph schema, explicit evidence references, lead states and tests for state transitions. A next pilot would replay labeled cases and compare CI Intel's ranked leads with expert annotations.}
 \qa{What is the implementation roadmap after the hackathon?}{First stabilize ingestion, provenance and access controls; then pilot entity resolution and graph analytics on a controlled data set; then integrate approved department systems and conduct security, language and usability evaluations before wider rollout.}
 \end{enumerate}
 
@@ -54,8 +54,8 @@
 \qa{Why would investigators trust an AI-assisted lead?}{Trust comes from showing the path, source document, timestamp, confidence and reasoning behind each lead. The officer can reject or correct it, and every decision is recorded rather than hidden behind a single score.}
 \qa{How do you prevent automation bias?}{The interface uses neutral language such as ``suggested connection'', separates observed from inferred information, displays uncertainty, and requires a review action. Training should explicitly state that a lead is not a finding of guilt.}
 \qa{What happens when the system is wrong?}{The investigator can reject, merge or correct a lead. That feedback is retained as an auditable decision and can later be used to improve models after quality review.}
-\qa{How does Chakra protect survivors and witnesses?}{Names and sensitive fields can be masked by role, survivor identities can be restricted, exports are watermarked, and a supervisor approval is required for sensitive joins. The demo uses fictional records only.}
-\qa{Could this system create bias against a community or language group?}{Yes, if source coverage or entity resolution is uneven. Chakra therefore needs subgroup and language error analysis, human review, calibrated thresholds and a policy against using graph prominence as a proxy for culpability.}
+\qa{How does CI Intel protect survivors and witnesses?}{Names and sensitive fields can be masked by role, survivor identities can be restricted, exports are watermarked, and a supervisor approval is required for sensitive joins. The demo uses fictional records only.}
+\qa{Could this system create bias against a community or language group?}{Yes, if source coverage or entity resolution is uneven. CI Intel therefore needs subgroup and language error analysis, human review, calibrated thresholds and a policy against using graph prominence as a proxy for culpability.}
 \qa{What is the ethical boundary of the product?}{It supports evidence organization and investigative prioritization. It must not produce an automated guilt score, unreviewed accusation label, predictive policing list or decision about a person's legal status.}
 \qa{How does the idea align with public-sector procurement?}{The architecture is modular, deployable on premises, offline-friendly for imports and exports, and based on auditable open data structures. A department can adopt ingestion, graph or assistant components in stages.}
 \qa{What is the cost argument?}{The largest value is analyst time saved and earlier discovery of a verifiable link. A pilot can begin with existing infrastructure and a narrow use case, then justify scale using measured review-time reduction and lead quality rather than speculative savings.}
@@ -67,15 +67,15 @@
 
 \section{Pitch, differentiation and difficult follow-ups}
 \begin{enumerate}[resume]
-\qa{Why should this be selected over a search engine or dashboard?}{Search returns records that contain a term; Chakra connects entities and events across records, ranks a reviewable relationship and preserves the evidence path. It is designed for investigative reasoning rather than only retrieval.}
-\qa{Why not let an LLM answer the investigator directly?}{An unconstrained LLM can invent links or lose provenance. Chakra restricts the assistant to graph-backed evidence, displays source references and keeps the graph and document path as the primary verification surface.}
+\qa{Why should this be selected over a search engine or dashboard?}{Search returns records that contain a term; CI Intel connects entities and events across records, ranks a reviewable relationship and preserves the evidence path. It is designed for investigative reasoning rather than only retrieval.}
+\qa{Why not let an LLM answer the investigator directly?}{An unconstrained LLM can invent links or lose provenance. CI Intel restricts the assistant to graph-backed evidence, displays source references and keeps the graph and document path as the primary verification surface.}
 \qa{What if two people share the same name or phone?}{The system treats a match as a candidate identity resolution, not proof. It combines aliases, time, location, case context and additional identifiers, keeps alternatives visible and sends ambiguous matches to review.}
-\qa{What if the most important clue is missing from the data?}{Chakra cannot infer an absent fact reliably. It should show coverage limits, mark a lead as incomplete and allow an officer to add an authorized source rather than filling the gap with speculation.}
+\qa{What if the most important clue is missing from the data?}{CI Intel cannot infer an absent fact reliably. It should show coverage limits, mark a lead as incomplete and allow an officer to add an authorized source rather than filling the gap with speculation.}
 \qa{What is the best live demo story?}{Start with three fictional women-safety cases, show one shared masked contact and one payment relationship, open the source lines and timestamps, then approve one lead and reject another. The contrast demonstrates both usefulness and restraint.}
 \qa{What is the success condition for the hackathon prototype?}{A judge should be able to follow every demonstrated lead from a case to a relationship to its evidence, understand the uncertainty, and complete a human review without needing a backend operator.}
 \qa{What question should the team ask the department after the pitch?}{Which cross-case link types consume the most analyst time today, and what access, retention and review rules must be satisfied before a pilot can use them? That answer should shape the first real integration.}
 \qa{If you had one more month, what would you build first?}{A labeled replay harness with real-world-like multilingual noise, a hardened provenance service and a small investigator usability pilot. Those three activities test whether the concept works beyond the polished demo.}
 \end{enumerate}
 \vfill
-\begin{center}\small\color{teal}Chakra is an evidence-led decision-support prototype. Every lead remains subject to officer verification.\end{center}
+\begin{center}\small\color{teal}CI Intel is an evidence-led decision-support prototype. Every lead remains subject to officer verification.\end{center}
 \end{document}

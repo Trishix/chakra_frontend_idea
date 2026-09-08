@@ -38,15 +38,15 @@ export async function downloadReport(report: ReportSnapshot): Promise<void> {
   doc.setProperties({
     title: ascii(report.title),
     subject: 'Demonstration investigation report. Fictional records.',
-    author: 'Chakra / dot_gitignore',
-    creator: 'Chakra local frontend',
+    author: 'CI Intel / dot_gitignore',
+    creator: 'CI Intel local frontend',
   });
 
   function header(): void {
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(16);
     doc.setTextColor(23, 65, 66);
-    doc.text('Chakra', margin, 19);
+    doc.text('CI Intel', margin, 19);
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(8);
     doc.setTextColor(80, 90, 97);
@@ -135,7 +135,7 @@ export async function downloadReport(report: ReportSnapshot): Promise<void> {
   section('Uncertainty and limitations');
   paragraph('All people, cases, records and relationships in this demonstration are fictional. A relationship or lead is a review aid, not proof of wrongdoing. Conflicts, inferred links and unverified claims require independent corroboration. A reviewed status records a user action; it does not establish that a claim is true.');
   paragraph('This export reflects the saved snapshot only. Later changes to leads or notes are not incorporated. Source excerpts may omit context; document page ranges are not exact citations. Restricted sources and session-only attachments are excluded. Review any unavailable sources through an appropriate authorized process before relying on a claim.');
-  paragraph('Chakra is a local frontend prototype by team dot_gitignore. It provides no authentication, backend, production security guarantee or NIC endorsement.', 9);
+  paragraph('CI Intel is a local frontend prototype by team dot_gitignore. It provides no authentication, backend, production security guarantee or NIC endorsement.', 9);
 
   const pageCount = doc.getNumberOfPages();
   for (let page = 1; page <= pageCount; page += 1) {
@@ -149,5 +149,5 @@ export async function downloadReport(report: ReportSnapshot): Promise<void> {
     doc.text(`Page ${page} of ${pageCount}`, width - margin, height - 13, { align: 'right' });
   }
   const safeId = report.id.replace(/[^a-zA-Z0-9_-]/g, '-').slice(0, 100) || 'snapshot';
-  doc.save(`chakra-report-${safeId}.pdf`);
+  doc.save(`ci-intel-report-${safeId}.pdf`);
 }

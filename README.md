@@ -1,8 +1,8 @@
-# Chakra
+# CI Intel
 
-Chakra is a React + TypeScript + Vite frontend prototype by **team dot_gitignore** for reviewing fictional investigation records. Its three screens are **Cases**, **Investigation**, and **Reports**.
+CI Intel is a React + TypeScript + Vite frontend prototype by **team dot_gitignore** for reviewing fictional investigation records. Its three screens are **Cases**, **Investigation**, and **Reports**.
 
-**Demonstration data. Fictional records.** No genuine case or victim data is included. Chakra has no authentication or backend and makes no production security guarantee. Role and access states are demonstrations. This project is not endorsed by NIC.
+**Demonstration data. Fictional records.** No genuine case or victim data is included. CI Intel has no authentication or backend and makes no production security guarantee. Role and access states are demonstrations. This project is not endorsed by NIC.
 
 ## Run locally
 

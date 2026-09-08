@@ -1,0 +1,150 @@
+/* App layout for phones and presentation tablets. Loaded last on purpose. */
+@media (max-width: 1023px) {
+  :root { --app-gutter: clamp(14px, 3vw, 26px); --app-nav-height: 68px; }
+  html { background: #f4f7f6; }
+  body { min-width: 320px; overflow-x: clip; padding-bottom: calc(var(--app-nav-height) + env(safe-area-inset-bottom)); }
+  .app-shell, .app-main { width: 100%; min-height: 100dvh; }
+  .app-main { margin-left: 0; }
+  #main-content { width: 100%; min-height: calc(100dvh - 60px); overflow-x: clip; }
+
+  .topbar { position: sticky; top: 0; z-index: 30; height: calc(60px + env(safe-area-inset-top)); padding: env(safe-area-inset-top) var(--app-gutter) 0; background: rgba(255,255,255,.94); backdrop-filter: blur(18px); }
+  .topbar-context { gap: 8px; }
+  .topbar-right { gap: 7px; }
+  .global-search { width: 40px; min-width: 40px; min-height: 40px; justify-content: center; }
+  .global-search span, .global-search kbd, .topbar-divider { display: none; }
+  .profile-button { min-width: 40px; min-height: 40px; justify-content: center; }
+  .profile-name, .profile-button > svg { display: none; }
+  .menu-toggle, .nav-scrim { display: none !important; }
+
+  .sidebar, .sidebar.nav-open { position: fixed; inset: auto 0 0; z-index: 50; width: 100%; height: calc(var(--app-nav-height) + env(safe-area-inset-bottom)); transform: none; display: block; padding-bottom: env(safe-area-inset-bottom); border: 0; border-top: 1px solid #d8e1de; background: rgba(250,252,251,.96); box-shadow: 0 -8px 28px rgba(26,55,47,.08); backdrop-filter: blur(20px); }
+  .sidebar .brand, .sidebar .workspace-label, .sidebar .sidebar-bottom { display: none; }
+  .sidebar nav { width: min(100%, 620px); height: var(--app-nav-height); margin: 0 auto; padding: 6px 10px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .sidebar .nav-item { position: relative; min-width: 0; min-height: 54px; margin: 0; padding: 5px; border-radius: 10px; flex-direction: column; justify-content: center; gap: 3px; font-size: 10px; line-height: 1.1; text-align: center; }
+  .sidebar .nav-item svg { width: 21px; height: 21px; }
+  .sidebar .nav-item.active { background: #e4efeb; color: #155f53; }
+  .sidebar .nav-count { position: absolute; top: 5px; left: calc(50% + 10px); margin: 0; min-width: 15px; font-size: 8px; line-height: 14px; }
+
+  .button, .icon-button, .text-button { min-height: 42px; }
+  .button { padding: 10px 13px; }
+  .icon-button { min-width: 42px; }
+  .page.cases-page, .page.reports-page { width: 100%; padding: 22px var(--app-gutter) 34px; }
+  .page-title { align-items: flex-start; gap: 16px; margin-bottom: 22px; }
+  .page-title h1 { font-size: clamp(25px, 5vw, 31px); text-wrap: balance; }
+  .page-title p { max-width: 58ch; }
+
+  .cases-page .page-title { flex-direction: column; }
+  .cases-page .page-title .actions { width: 100%; }
+  .cases-page .page-title .actions .button { flex: 1; min-width: 0; }
+  .cases-page .case-tabs { margin-right: calc(var(--app-gutter) * -1); padding-right: var(--app-gutter); overflow-x: auto; scrollbar-width: none; }
+  .cases-page .case-tabs::-webkit-scrollbar { display: none; }
+  .cases-page .register-layout { display: block; }
+  .cases-page .register { overflow: hidden; border-radius: 10px; }
+  .cases-page .register-tools { padding: 12px; gap: 9px; }
+  .cases-page .register-caption { min-height: 34px; padding: 0 13px 10px; align-items: center; }
+  .cases-page .table-scroll { width: 100%; overflow: visible; }
+  .cases-page .case-table { display: block; width: 100%; min-width: 0; }
+  .cases-page .case-table thead { display: none; }
+  .cases-page .case-table tbody { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 10px; border-top: 1px solid var(--border); }
+  .cases-page .case-table tr { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px 8px; min-width: 0; padding: 15px; border: 1px solid #e0e7e4; border-radius: 8px; background: #fff; }
+  .cases-page .case-table td { display: block; min-width: 0; padding: 0; border: 0; }
+  .cases-page .case-table td:first-child { grid-column: 1 / -1; padding-right: 34px; }
+  .cases-page .case-table td:last-child { position: absolute; top: 11px; right: 9px; }
+  .cases-page .case-table td:nth-child(3)::before, .cases-page .case-table td:nth-child(4)::before { display: block; margin-bottom: 5px; color: #83918b; font-size: 8px; letter-spacing: .05em; text-transform: uppercase; }
+  .cases-page .case-table td:nth-child(3)::before { content: 'District'; }
+  .cases-page .case-table td:nth-child(4)::before { content: 'Review'; }
+  .cases-page .case-title-link { width: 100%; }
+  .cases-page .case-title-link strong { max-width: none; font-size: 13px; }
+  .cases-page .register-foot { padding: 12px 14px; line-height: 1.5; }
+  .cases-page .continue-panel { display: block; margin-top: 18px; padding: 18px; border: 1px solid var(--border); border-top: 3px solid #5b8876; border-radius: 10px; background: #fff; }
+  .cases-page .continue-panel h2 { max-width: none; }
+  .cases-page .continue-panel > p { max-width: 55ch; }
+  .cases-page .recent-section { margin-top: 24px; padding: 16px; border: 1px solid var(--border); border-radius: 10px; background: #fff; }
+  .cases-page .recent-list { margin-top: 10px; }
+
+  .investigation { width: 100%; padding: 20px var(--app-gutter) 34px; }
+  .investigation-title { padding-bottom: 15px; }
+  .case-heading { gap: 12px; }
+  .case-heading h1 { font-size: clamp(22px, 4.6vw, 30px); text-wrap: balance; }
+  .case-heading .actions { flex-shrink: 0; }
+  .case-subline { gap: 8px 14px; line-height: 1.6; }
+  .investigation-filters { flex-wrap: wrap; gap: 8px; padding: 10px; border-radius: 9px; }
+  .investigation-filters .search { flex: 1 1 100%; max-width: none; min-width: 0; }
+  .investigation-filters .date-range { flex: 1 1 auto; min-width: 280px; border-left: 0; padding-left: 0; }
+  .investigation-filters > .select-wrap { flex: 0 1 160px; min-width: 0; }
+  .investigation-filters > .select-wrap select { width: 100%; min-width: 0; }
+  .workbench { display: flex; flex-direction: column; width: 100%; height: auto; min-height: 0; margin-top: 14px; overflow: hidden; border-radius: 10px; }
+  .lead-panel { max-height: 238px; border-right: 0; border-bottom: 1px solid var(--border); }
+  .lead-tabs { min-height: 46px; }
+  .lead-list { display: flex; flex: none; min-height: 0; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .lead-list::-webkit-scrollbar { display: none; }
+  .lead-row { width: min(42vw, 300px); min-width: 240px; min-height: 164px; flex-shrink: 0; scroll-snap-align: start; border-right: 1px solid var(--border); border-bottom: 0; }
+  .lead-row.selected::before { inset: 0 0 auto; width: auto; height: 3px; }
+  .lead-panel-foot { display: none; }
+  .canvas-panel { order: 2; min-width: 0; min-height: 0; }
+  .view-tabs { min-height: 48px; height: auto; gap: clamp(12px, 4vw, 28px); padding: 0 12px; overflow-x: auto; scrollbar-width: none; }
+  .view-tabs::-webkit-scrollbar { display: none; }
+  .view-tabs > button:not(.icon-button) { min-height: 47px; flex-shrink: 0; }
+  .mobile-evidence-toggle { display: flex !important; margin-left: auto; min-width: 40px !important; min-height: 40px !important; }
+  .canvas-caption { min-height: 46px; padding: 9px 13px; }
+  .graph-stage { width: 100%; height: clamp(480px, 64dvh, 680px); min-height: 0; flex: none; }
+  .graph-stage .react-flow__controls { left: 12px !important; bottom: 12px !important; }
+  .graph-stage .graph-hud { top: auto; right: 12px; bottom: 12px; left: 54px; gap: 10px; }
+  .graph-stage .graph-expand { right: 12px; bottom: 58px; min-height: 38px; }
+  .graph-stage .graph-help { display: none; }
+  .canvas-footer { flex-wrap: wrap; gap: 7px 16px; padding: 10px 13px; }
+  .evidence-panel { display: none; }
+  .mobile-evidence .drawer { padding-bottom: env(safe-area-inset-bottom); }
+
+  .reports-page .page-title { flex-direction: row; }
+  .reports-page .reports-layout { display: flex; flex-direction: column; gap: 14px; }
+  .reports-page .report-list { order: 1; min-height: 0; padding: 14px; border: 1px solid var(--border); border-radius: 10px; background: #fff; }
+  .reports-page .report-list-note { display: none; }
+  .reports-page .report-main { order: 2; min-width: 0; min-height: 0; border-radius: 10px; }
+  .reports-page .report-compose-heading, .reports-page .report-preview-toolbar { padding: 16px; }
+  .reports-page .report-form { padding: 16px; }
+  .reports-page .report-paper { margin: 12px; padding: clamp(18px, 4vw, 30px); }
+  .reports-page .report-paper h2 { overflow-wrap: anywhere; }
+  .reports-page .back-investigation { margin-bottom: 18px; }
+
+  .modal { max-width: calc(100vw - 24px); padding-bottom: calc(21px + env(safe-area-inset-bottom)); }
+  .drawer { max-width: 100%; }
+  .toast { bottom: calc(var(--app-nav-height) + 12px + env(safe-area-inset-bottom)); }
+}
+
+@media (max-width: 599px) {
+  :root { --app-gutter: 14px; }
+  .topbar-context > span:first-of-type, .topbar-context > .slash { display: none; }
+  .page-title { flex-direction: column; }
+  .page-title .actions, .reports-page .page-title > .button { width: 100%; }
+  .cases-page .case-table tbody { grid-template-columns: 1fr; }
+  .cases-page .register-tools { flex-direction: column; align-items: stretch; }
+  .cases-page .register-tools .select-wrap { justify-content: space-between; }
+  .cases-page .register-tools .select-wrap select { flex: 1; max-width: none; }
+  .recent-item time { display: none; }
+  .investigation { padding-top: 16px; }
+  .case-heading { align-items: flex-start; }
+  .case-heading .button { padding: 7px; min-width: 40px; }
+  .case-heading .desktop-label { display: none; }
+  .case-subline > span { width: 100%; }
+  .investigation-filters .date-range { width: 100%; min-width: 0; justify-content: space-between; padding-right: 0; gap: 4px; }
+  .date-range input { width: 98px; font-size: 9px; }
+  .investigation-filters > .select-wrap { flex: 1 1 140px; }
+  .lead-row { width: min(78vw, 280px); }
+  .view-tabs { gap: 15px; }
+  .view-tabs > button:not(.icon-button) { gap: 4px; font-size: 10px; }
+  .graph-stage { height: clamp(470px, 62dvh, 560px); }
+  .graph-stage .graph-hud { left: 12px; align-items: flex-end; }
+  .graph-stage .graph-hud > div:first-child { max-width: 48%; }
+  .graph-stage .graph-legend { gap: 7px; padding: 5px 7px; }
+  .reports-page .page-title { flex-direction: column; }
+  .reports-page .page-title > .button { justify-content: center; }
+  .reports-page .report-preview-toolbar { flex-wrap: wrap; align-items: flex-start; }
+}
+
+@media (max-width: 380px) {
+  .topbar-context strong { max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .cases-page .page-title .actions { flex-direction: column; }
+  .cases-page .page-title .actions .button { width: 100%; }
+  .date-range input { width: 88px; }
+  .graph-stage { height: 470px; }
+}

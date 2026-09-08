@@ -14,5 +14,7 @@ import './graph-tech.css';
 import './minimal.css';
 import './graph-refine.css';
 import './cases-refine.css';
+import './mobile.css';
+import './investigation-layout.css';
 import { App } from './App';
 ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><App /></React.StrictMode>);

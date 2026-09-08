@@ -1,0 +1,81 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.72in]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\definecolor{navy}{HTML}{17324D}
+\definecolor{teal}{HTML}{0D7468}
+\definecolor{coral}{HTML}{B95843}
+\definecolor{paper}{HTML}{F4F7F6}
+\hypersetup{colorlinks=true,linkcolor=teal,urlcolor=teal,pdftitle={Chakra Technical Architecture Counter Questions}}
+\pagestyle{fancy}\fancyhf{}\lhead{\textcolor{navy}{CHAKRA TECHNICAL REVIEW}}\rhead{\textcolor{teal}{dot\_gitignore}}\cfoot{\thepage}\setlength{\headheight}{14pt}
+\setlist[enumerate]{leftmargin=*,itemsep=7pt,topsep=5pt}
+\newcommand{\qa}[2]{\item \textbf{\color{navy}Q: #1}\\[-1pt]{\color{coral}\textit{Answer:}} #2}
+\newcommand{\note}[1]{\vspace{4pt}\noindent\colorbox{paper}{\parbox{\dimexpr\linewidth-2\fboxsep}{\small\textbf{Review frame:} #1}}\vspace{6pt}}
+\begin{document}
+\begin{center}
+{\Huge\bfseries\color{navy}Chakra}\\[3pt]
+{\Large Technical Architecture, Security and Edge-Case Counter Questions}\\[5pt]
+{\normalsize Smart India Hackathon SIH26189 \textbar\ Team dot\_gitignore}
+\end{center}
+\note{The answers describe a production direction while distinguishing it from the frontend-only prototype. They assume deployment inside an authorized NIC or police environment, with evidence scope enforced before graph construction and export.}
+
+\section{Architecture and data flow}
+\begin{enumerate}
+\qa{What is the proposed end-to-end architecture?}{A React investigator dashboard calls a FastAPI gateway. Ingestion services validate and hash originals, OCR and NLP extract entities and relations, a temporal graph stores evidence-backed connections, PostgreSQL stores metadata, and object storage retains originals.}
+\qa{Why separate graph data, metadata and originals?}{The graph is optimized for relationships, PostgreSQL for workflow and provenance metadata, and object storage for immutable source files. Separation limits accidental exposure and lets each store use an appropriate backup and retention policy.}
+\qa{Why use a temporal knowledge graph instead of only a relational schema?}{Relational tables remain useful for authoritative records, but a graph makes multi-hop case links and bridge entities easier to query. Temporal properties keep the relationship tied to when it was observed or inferred.}
+\qa{What is the canonical entity model?}{Nodes represent cases, people, aliases, phones, devices, accounts, vehicles, organizations, addresses, locations, events, documents and modus-operandi patterns. Edges carry type, direction, source, time, confidence, observed or inferred status and legal scope.}
+\qa{How is provenance stored?}{Every imported item receives a source identifier, timestamp, case identifier, hash, officer or system origin and access scope. A relation points back to the source fragment or event that supports it, so a reviewer can open the original.}
+\qa{How do you prevent untrusted data from entering the graph?}{Ingestion validates schema and file type, computes a hash before transformation, records chain of custody and quarantines malformed or unauthorized items. Extraction results are versioned and cannot overwrite the original evidence.}
+\qa{How does the frontend stay usable if a service is slow?}{The gateway returns explicit job states for OCR, extraction and graph loading. The interface can show partial, clearly marked results and retry status without presenting an unfinished graph as complete evidence.}
+\qa{How would you integrate CCTNS or ICJS?}{Use an adapter per approved interface that maps source fields into the canonical schema, preserves the source identifier and applies the source system's access scope. Integration should be read-only initially and validated against sample exports.}
+\qa{How are updates and deletions handled?}{Evidence is append-only from the application's perspective. A correction creates a new version and audit event, while retention or legally required deletion is executed through a controlled, logged policy process.}
+\qa{Why is GraphRAG limited to graph evidence?}{The assistant retrieves nodes, edges and source fragments from the authorized graph and must cite them in its response. It is not allowed to use general model memory to create an unsupported connection.}
+\end{enumerate}
+
+\section{Graph analytics, NLP and edge cases}
+\begin{enumerate}[resume]
+\qa{How does entity resolution avoid false merges?}{It combines normalized aliases with context such as time, location, phone ownership, account metadata and source reliability. A similarity score creates a candidate link; only an authorized reviewer can treat an ambiguous match as accepted.}
+\qa{What if two people have the same name?}{Name similarity alone remains a weak signal and is shown as such. The system keeps separate entities until corroborating attributes support a merge and records the merge decision with its evidence.}
+\qa{What if one person uses several aliases?}{Aliases are modeled as separate observed strings linked to a candidate person with source and confidence metadata. The original spelling is retained for audit and search normalization never replaces it.}
+\qa{What if a phone or account is shared by a family or office?}{Shared usage is represented as a possible relationship, not an identity assertion. Time windows, device context and source notes are shown, and the interface explicitly says that shared use does not establish wrongdoing.}
+\qa{How do you handle masked or partially redacted identifiers?}{Store only the permitted representation, such as a masked phone token, and mark its resolution strength. Partial matches cannot be promoted to a strong identity link without another authorized source.}
+\qa{How are multilingual names and OCR errors handled?}{Use language-aware tokenization, transliteration candidates and OCR confidence. Preserve the scanned text, expose the normalized form and send low-confidence or conflicting spans to a correction queue.}
+\qa{What if a PDF is an image, rotated or handwritten?}{The pipeline detects whether text is available, runs orientation-aware OCR and records page and bounding-box references. Handwriting or unreadable pages are flagged as unavailable evidence rather than converted into invented text.}
+\qa{How are inferred edges distinguished from observed edges?}{Observed edges point to a source event or document. Inferred edges carry the model version, rule or features used, confidence and supporting observed paths, and are rendered with distinct styling.}
+\qa{How do you calibrate confidence?}{Use a held-out labeled set and reliability curves, then calibrate per lead type and language where needed. Display confidence as decision support, not as a probability of guilt, and monitor drift after deployment.}
+\qa{What if a model update changes old results?}{Version extraction and scoring outputs, retain the previous result and rerun history, and show which model produced a lead. A supervisor can compare versions before accepting a migration.}
+\end{enumerate}
+
+\section{Security, privacy and evidence integrity}
+\begin{enumerate}[resume]
+\qa{What is the access-control model?}{Use RBAC for job role and ABAC for case, district, sensitivity, purpose and legal scope. The gateway checks authorization on every read, graph traversal, export and model prompt rather than trusting the client.}
+\qa{How do you enforce case-level isolation in a graph?}{Attach scope labels to nodes, edges and source fragments, apply scope predicates to every query and prevent traversal through an entity that the user cannot view. Test cross-scope queries explicitly.}
+\qa{How are survivor identities protected?}{Use restricted entity classes, field-level masking and separate permissions for sensitive statements. Search results, graph labels, logs and exports must all apply the same masking policy.}
+\qa{How are keys and secrets managed?}{Use an approved secret manager or hardware-backed key store, rotate keys, separate encryption keys by environment and never place credentials in the frontend, source repository or logs.}
+\qa{What is encrypted?}{Use encryption in transit for all service calls and encryption at rest for graph, metadata, object storage, backups and exports. Hashes protect integrity but do not replace encryption.}
+\qa{What belongs in the immutable audit log?}{Record actor, role, case scope, action, object, timestamp, result, source IP or workstation identifier as permitted, and export destination. Audit events themselves should be append-only and access-controlled.}
+\qa{How do you prevent prompt injection from a document?}{Treat document text as untrusted data, delimit it from system instructions, allow retrieval only from authorized fields, validate tool calls and block instructions that request secrets or scope expansion.}
+\qa{How do you prevent graph query injection?}{Use parameterized query APIs, allow-listed relationship and property names, input length limits and a read-only query layer for the assistant. Never concatenate user text into database commands.}
+\qa{What if an officer exports a sensitive graph?}{Require purpose and supervisor approval for sensitive joins, apply field masking and watermarking, record the exact export contents and destination, and enforce retention or revocation rules where technically possible.}
+\qa{What is the retention and deletion approach?}{Retention is configured by case type, legal hold and policy. Deletion or anonymization is a controlled workflow that removes derived copies and records what was deleted without retaining the sensitive content in logs.}
+\end{enumerate}
+
+\section{Reliability, performance and testing}
+\begin{enumerate}[resume]
+\qa{How will the system perform at 100,000 or 1 million edges?}{Use indexed identifiers and timestamps, bounded traversals, pagination and precomputed aggregates for common lead queries. Benchmark ingestion, graph queries and evidence retrieval separately at target graph sizes.}
+\qa{What if an import contains millions of events?}{Stream and chunk the import, checkpoint progress, apply backpressure and make each batch idempotent. The user sees a job status and a partial-data warning until validation completes.}
+\qa{How do you handle service failure during ingestion?}{Use durable job records, retries with exponential backoff and a dead-letter queue for persistent failures. Originals remain available, and a failed derived result cannot be mistaken for a completed graph.}
+\qa{What are the backup and disaster-recovery targets?}{Back up metadata and graph snapshots on a tested schedule, replicate encrypted originals according to policy, and define recovery point and recovery time objectives with the department. Regular restore drills matter more than claiming a backup exists.}
+\qa{How do you test the graph logic?}{Unit-test normalization and entity resolution, property-test duplicate and cycle handling, integration-test scoped traversals, and replay labeled synthetic networks to measure Precision@K, Recall@K and provenance coverage.}
+\qa{How do you test security?}{Run authorization matrix tests, negative scope tests, dependency scanning, secret detection, API fuzzing, upload malware checks and an independent penetration test before production use.}
+\qa{How do you monitor model and data drift?}{Track language, source type, OCR confidence, merge rates, lead acceptance, rejection reasons and subgroup error metrics over time. Alert on distribution changes and pause model promotion when quality falls below a threshold.}
+\qa{How do you make the system observable without exposing evidence?}{Use correlation IDs, job timings, counts and status codes with tokenized identifiers. Keep evidence content out of application logs and allow only authorized, separately audited diagnostic access.}
+\qa{What is the deployment strategy?}{Package services with pinned dependencies, scan images, deploy on approved on-prem infrastructure, separate development, staging and production data, and use signed releases with rollback capability.}
+\qa{What is the most important technical limitation of the prototype?}{The current frontend demonstrates the workflow but does not yet provide production ingestion, model serving, identity federation or an operational security boundary. Those are explicit engineering milestones, not hidden assumptions.}
+\end{enumerate}
+\vfill
+\begin{center}\small\color{teal}Technical principle: preserve the original, expose the reasoning, enforce scope, and keep a human accountable for the decision.\end{center}
+\end{document}

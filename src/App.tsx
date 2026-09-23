@@ -1,30 +1,145 @@
 import { useEffect, useRef, useState } from 'react';
-import { ArrowSquareOut, CaretDown, CheckCircle, CirclesThree, FileText, FolderSimple, Graph, Info, List, LockKey, MagnifyingGlass, ArrowCounterClockwise, X } from '@phosphor-icons/react';
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { StoreProvider, useStore } from './store';
-import { Cases } from './components/Cases';
-import { Investigation } from './components/Investigation';
-import { Reports } from './components/Reports';
-import { ImportEvidence } from './components/ImportEvidence';
-import type { Attachment } from './components/ImportEvidence';
-import { Modal } from './components/ui';
+import { Sidebar } from './components/layout/Sidebar';
+import { Topbar } from './components/layout/Topbar';
+import { Toast, Modal } from './components/ui';
+import { LockKey } from '@phosphor-icons/react';
 
-type Screen='cases'|'investigation'|'reports';
-function Shell(){
- const {state,dispatch,persistent}=useStore();const [screen,setScreen]=useState<Screen>('cases');const [caseId,setCaseId]=useState('c1');const [importOpen,setImportOpen]=useState(false);const [importCase,setImportCase]=useState('c1');const [about,setAbout]=useState(false);const [reset,setReset]=useState(false);const [mobileNav,setMobileNav]=useState(false);const [search,setSearch]=useState(false);const [searchText,setSearchText]=useState('');const [toast,setToast]=useState('');const toastTimer=useRef<ReturnType<typeof setTimeout>|undefined>(undefined);const [attachments,setAttachments]=useState<Attachment[]>([]);const attachmentRef=useRef<Attachment[]>([]);
- const current=state.cases.find(c=>c.id===caseId)||state.cases[0];
- function notify(message:string){setToast(message);clearTimeout(toastTimer.current);toastTimer.current=setTimeout(()=>setToast(''),4200);}
- function openCase(id:string){setCaseId(id);setScreen('investigation');setMobileNav(false);setSearch(false);}
- function importEvidence(id?:string){setImportCase(id||current.id);setImportOpen(true);}
- useEffect(()=>{attachmentRef.current=attachments;},[attachments]);useEffect(()=>()=>{attachmentRef.current.forEach(a=>URL.revokeObjectURL(a.url));clearTimeout(toastTimer.current);},[]);
- useEffect(()=>{const handler=(e:KeyboardEvent)=>{if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();setSearch(v=>!v);}};window.addEventListener('keydown',handler);return()=>window.removeEventListener('keydown',handler);},[]);
- function doReset(){dispatch({type:'reset'});attachmentRef.current.forEach(a=>URL.revokeObjectURL(a.url));setAttachments([]);setCaseId('c1');setScreen('cases');setReset(false);notify('Demonstration restored. Local decisions and attachments have been cleared.');}
- const nav=[{id:'cases' as const,label:'Cases',icon:FolderSimple},{id:'investigation' as const,label:'Investigation',icon:Graph},{id:'reports' as const,label:'Reports',icon:FileText}];
- return <div className="app-shell"><a className="skip-link" href="#main-content">Skip to content</a>{mobileNav&&<button className="nav-scrim" aria-label="Close navigation" onClick={()=>setMobileNav(false)}/>}<aside className={`sidebar ${mobileNav?'nav-open':''}`}><a href="#" onClick={e=>{e.preventDefault();setScreen('cases');setMobileNav(false);}} className="brand"><img src="/ci-intel.svg" alt=""/><span>CI Intel</span></a><div className="workspace-label">Investigation workspace</div><nav aria-label="Main navigation">{nav.map(({id,label,icon:I})=><button key={id} className={`nav-item ${screen===id?'active':''}`} aria-current={screen===id?'page':undefined} onClick={()=>{setScreen(id);setMobileNav(false);}}><I size={20} weight={screen===id?'duotone':'regular'}/><span>{label}</span>{id==='cases'&&<span className="nav-count">{state.cases.length}</span>}</button>)}</nav><div className="sidebar-bottom"><button onClick={()=>setAbout(true)}><Info size={18}/>About CI Intel</button><button onClick={()=>setReset(true)}><ArrowCounterClockwise size={18}/>Reset demo</button><div className="demo-label"><span className="demo-symbol"><CirclesThree size={18}/></span><div><strong>Demonstration data</strong><span>Fictional records only</span></div></div><span className="team-credit">Built by dot_gitignore</span></div></aside><div className="app-main"><header className="topbar"><div className="topbar-context"><button className="icon-button menu-toggle" aria-label="Open navigation" onClick={()=>setMobileNav(true)}><List size={21}/></button><span>Workspace</span><span className="slash">/</span><strong>{screen==='cases'?'Case register':screen==='reports'?'Reports':'Investigation'}</strong></div><div className="topbar-right"><button className="global-search" aria-label="Search workspace" onClick={()=>{setSearchText('');setSearch(true);}}><MagnifyingGlass size={17}/><span>Search workspace</span><kbd>⌘ K</kbd></button><div className="topbar-divider"/><button className="profile-button" onClick={()=>setAbout(true)} aria-label="View demonstration profile"><span className="avatar">AS</span><span className="profile-name">A. Sen</span><CaretDown size={12}/></button></div></header>{!persistent&&<div className="persistence-warning" role="status">Browser storage is unavailable. Changes will last for this session only.</div>}<main id="main-content">{screen==='cases'?<Cases onOpen={openCase} onImport={importEvidence}/>:screen==='investigation'?<Investigation key={current.id} caseId={current.id} onCases={()=>setScreen('cases')} onImport={()=>importEvidence(current.id)} onReports={()=>setScreen('reports')} attachments={attachments} onToast={notify}/>:<Reports key={current.id} caseId={current.id} onInvestigate={openCase} onToast={notify}/>}</main></div>
- <ImportEvidence open={importOpen} onClose={()=>setImportOpen(false)} caseId={importCase} onAttachment={a=>{setAttachments(prev=>[...prev,a]);notify('File attached for this session. No analysis performed.');}}/>
- <Modal open={about} onClose={()=>setAbout(false)} title="About CI Intel" description="A guided investigation workspace by team dot_gitignore."><div className="about-content"><div className="about-brand"><img src="/ci-intel.svg" alt=""/><span>CI Intel</span></div><p>Prepared for an NIC Delhi presentation. This is a frontend demonstration with fictional cases, local review decisions and browser-generated reports.</p><div className="notice"><LockKey size={19}/><span>No authentication, backend, live case data or AI service is connected. Displayed restrictions are demonstration states, not security controls.</span></div><dl className="summary-dl"><div><dt>Demonstration profile</dt><dd>Insp. A. Sen</dd></div><div><dt>Team</dt><dd>dot_gitignore</dd></div><div><dt>Storage</dt><dd>This browser only</dd></div></dl><p className="small muted">This prototype does not represent an official NIC service or endorsement.</p></div></Modal>
- <Modal open={reset} onClose={()=>setReset(false)} title="Reset demonstration?" description="This removes local cases, review decisions, saved reports, activity changes and session attachments. The original fictional records will be restored."><div className="form-actions"><button className="button" onClick={()=>setReset(false)}>Keep my changes</button><button className="button danger" onClick={doReset}>Reset demonstration</button></div></Modal>
- <Modal open={search} onClose={()=>setSearch(false)} title="Search workspace" description="Find a case by reference, subject or district."><label className="search command-search"><MagnifyingGlass size={19}/><input autoFocus value={searchText} onChange={e=>setSearchText(e.target.value)} placeholder="Search cases…" aria-label="Workspace case search"/></label><div className="command-results">{state.cases.filter(c=>`${c.reference} ${c.title} ${c.district}`.toLowerCase().includes(searchText.toLowerCase())).map(c=><button key={c.id} onClick={()=>openCase(c.id)}><FolderSimple size={19}/><div><strong>{c.title}</strong><span className="reference">{c.reference}</span></div><ArrowSquareOut size={17}/></button>)}{!state.cases.some(c=>`${c.reference} ${c.title} ${c.district}`.toLowerCase().includes(searchText.toLowerCase()))&&<p className="empty-search">No cases match this search.</p>}</div></Modal>
- {toast&&<div className="toast" role="status"><CheckCircle size={19}/><span>{toast}</span><button className="icon-button" aria-label="Dismiss notification" onClick={()=>setToast('')}><X size={15}/></button></div>}
- </div>;
+/* ─── Lazy page imports ──────────────────────────────────── */
+import { DashboardPage }        from './pages/DashboardPage';
+import { CasesPage }            from './pages/CasesPage';
+import { CaseOverviewPage }     from './pages/CaseOverviewPage';
+import { CaseConnectionsPage }  from './pages/CaseConnectionsPage';
+import { EvidenceTimelinePage } from './pages/EvidenceTimelinePage';
+import { EventTimelinePage }    from './pages/EventTimelinePage';
+import { CameraSearchPage }     from './pages/CameraSearchPage';
+import { ReviewLeadsPage }      from './pages/ReviewLeadsPage';
+import { EvidenceHistoryPage }  from './pages/EvidenceHistoryPage';
+import { EntityProfilePage }    from './pages/EntityProfilePage';
+import { AIAssistantPage }      from './pages/AIAssistantPage';
+import { ReportsPage }          from './pages/ReportsPage';
+
+/* ─── App layout shell (persistent across all routes) ────── */
+function AppLayout() {
+  const { dispatch } = useStore();
+  const [mobileNav, setMobileNav] = useState(false);
+  const [toast, setToast] = useState('');
+  const [aboutOpen, setAboutOpen] = useState(false);
+  const [resetOpen, setResetOpen] = useState(false);
+  const toastTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+
+  function notify(message: string) {
+    setToast(message);
+    clearTimeout(toastTimer.current);
+    toastTimer.current = setTimeout(() => setToast(''), 4200);
+  }
+
+  function doReset() {
+    dispatch({ type: 'reset' });
+    setResetOpen(false);
+    notify('Demonstration restored to initial FIR-409 dataset.');
+  }
+
+  useEffect(() => () => clearTimeout(toastTimer.current), []);
+
+  useEffect(() => {
+    function handler(e: KeyboardEvent) {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        // Trigger search via topbar - handled in Topbar component
+      }
+    }
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, []);
+
+  return (
+    <div className="app-shell">
+      <a className="skip-link" href="#main-content">Skip to content</a>
+
+      <Sidebar
+        onReset={() => setResetOpen(true)}
+        onAbout={() => setAboutOpen(true)}
+        mobileOpen={mobileNav}
+        onMobileClose={() => setMobileNav(false)}
+      />
+
+      <div className="app-main">
+        <Topbar onMenuToggle={() => setMobileNav(v => !v)} />
+        <main id="main-content" className="page-content">
+          <Outlet context={{ notify }} />
+        </main>
+      </div>
+
+      <Toast message={toast} onDismiss={() => setToast('')} />
+
+      {/* About modal */}
+      <Modal open={aboutOpen} onClose={() => setAboutOpen(false)} title="About CI INTEL">
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+          <img src="/ci-intel.svg" alt="" style={{ width: 36 }} />
+          <div>
+            <div style={{ fontSize: 18, fontWeight: 600, color: 'var(--navy)' }}>CI INTEL</div>
+            <div style={{ fontSize: 11, color: 'var(--muted)' }}>AI-Powered Criminal Network Analysis</div>
+          </div>
+        </div>
+        <p style={{ fontSize: 13, color: 'var(--muted)', lineHeight: 1.7, marginBottom: 16 }}>
+          SIH 2026 prototype for Problem Statement 26189. Built to demonstrate how fragmented records — FIRs, CDR data, financial transactions, CCTV — can be connected into a knowledge graph to surface hidden criminal network relationships.
+        </p>
+        <div className="note-box">
+          <LockKey size={17} style={{ flexShrink: 0, marginTop: 1 }} />
+          <span>This is a synthetic demonstration. All data is fictional. No real government databases, CDR records, or financial systems are connected.</span>
+        </div>
+        <div style={{ marginTop: 16, fontSize: 11, color: 'var(--muted)' }}>
+          Dataset: FIR-409/2026/NZ · State vs. Tariq Ahmed @ Syndicate 11
+        </div>
+        <div className="form-actions">
+          <button className="btn btn-primary" onClick={() => setAboutOpen(false)}>Close</button>
+        </div>
+      </Modal>
+
+      {/* Reset modal */}
+      <Modal open={resetOpen} onClose={() => setResetOpen(false)} title="Reset demonstration?" description="This restores the original FIR-409 synthetic dataset and clears all review decisions.">
+        <div className="form-actions">
+          <button className="btn" onClick={() => setResetOpen(false)}>Keep my changes</button>
+          <button className="btn btn-danger" onClick={doReset}>Reset demonstration</button>
+        </div>
+      </Modal>
+    </div>
+  );
 }
-export function App(){return <StoreProvider><Shell/></StoreProvider>;}
+
+/* ─── Router definition ──────────────────────────────────── */
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <WrappedLayout />,
+    children: [
+      { index: true,                              element: <DashboardPage /> },
+      { path: 'cases',                            element: <CasesPage /> },
+      { path: 'cases/:caseId',                    element: <CaseOverviewPage /> },
+      { path: 'cases/:caseId/connections',        element: <CaseConnectionsPage /> },
+      { path: 'cases/:caseId/evidence',           element: <EvidenceTimelinePage /> },
+      { path: 'cases/:caseId/timeline',           element: <EventTimelinePage /> },
+      { path: 'camera',                           element: <CameraSearchPage /> },
+      { path: 'leads',                            element: <ReviewLeadsPage /> },
+      { path: 'evidence-history',                 element: <EvidenceHistoryPage /> },
+      { path: 'entities/:entityId',               element: <EntityProfilePage /> },
+      { path: 'assistant',                        element: <AIAssistantPage /> },
+      { path: 'reports',                          element: <ReportsPage /> },
+      { path: 'cases/:caseId/reports',            element: <ReportsPage /> },
+    ],
+  },
+]);
+
+function WrappedLayout() {
+  return (
+    <StoreProvider>
+      <AppLayout />
+    </StoreProvider>
+  );
+}
+
+export function App() {
+  return <RouterProvider router={router} />;
+}

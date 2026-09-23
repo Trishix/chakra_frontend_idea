@@ -1,0 +1,32 @@
+Use case: infographic-diagram.
+Asset: finished slide 3 of a Smart India Hackathon 2026 CI Intel presentation, landscape 16:9, ideally 3840x2160, extremely sharp readable typography.
+Input image 1 is the user's completed APPROACH DETAILS slide: authoritative STYLE and branding reference. Input image 2 is the existing TECHNICAL APPROACH slide: authoritative CONTENT reference to redesign and simplify. Create a coherent next slide in the same deck, not a generic unrelated infographic. Match image 1's white background, heavy condensed black sans-serif body and titles, navy-blue centered uppercase heading, pale mint green solution cards, dark green icons and accents, and clean flat layout. Preserve top-left italic black 'dotGitIgnore' wordmark and top-right Smart India Hackathon 2026 logo from the references. Title exact 'TECHNICAL APPROACH'. Avoid gradients, photographs, device mockups and visual clutter.
+
+Use a compact 3-zone layout below the header. Left column about 22% width is a clearly arranged tech stack. Right 76% upper area is a five-stage horizontal pipeline with visible blue arrows. Right lower area has two large explanatory cards: a relationship graph and an example investigation. Use the same rounded cards and bold typographic hierarchy as image 1. Plenty of padding, align every edge, text never clipped.
+
+LEFT COLUMN:
+Navy title bar 'PROPOSED TECH STACK', white text.
+Five stacked pale green cards, small dark green icons, bold readable category and plain technology names:
+'Graph & storage' / 'Neo4j · Graphiti'
+'AI & language' / 'Python · LLMs · GraphRAG'
+'Data processing' / 'ETL pipelines'
+'Backend' / 'FastAPI'
+'Frontend' / 'React'
+Small footer within column: 'Current demo uses sample data.'
+Do not include claims of security certification or production deployment.
+
+UPPER RIGHT:
+Navy title 'FROM RAW DATA TO CASE INSIGHTS'
+Five equal pale mint cards linked left-to-right by blue arrows. Dark green simple icons. Blue numbers 01–05.
+Card 1 title 'Collect data', description 'Bring case files, call records and payments together.'
+Card 2 title 'Extract details', description 'Identify people, phones, vehicles, places and dates.'
+Card 3 title 'Connect records', description 'Link related records in a knowledge graph.'
+Card 4 title 'Find patterns', description 'Explore shared contacts, events and links across cases.'
+Card 5 title 'Review findings', description 'Show sources so investigators can check each lead.'
+Fit titles on one or two lines, descriptions on 3–4 lines, no tiny text.
+
+LOWER RIGHT TWO PANELS:
+First panel title 'HOW RECORDS CONNECT'. Draw a clean legible illustrative node graph. One central navy circle with person icon and label 'Person'. Six peripheral nodes connected by thin lines, labels 'Phone', 'Account', 'Vehicle', 'Location', 'Case', 'Camera'. Use navy/blue/green nodes with a few warm amber accents like reference. Small footer 'Every link points back to a source.' Do not imply guilt; central node is Person, not Suspect. Space labels clearly, do not overlap lines and text.
+Second panel title 'EXAMPLE INVESTIGATION'. A pale blue query box with exact text 'Who is linked to Case 409 through shared phone numbers?' Under it a pale green results block titled 'Links to review' with three green check icons and these lines: 'People and shared phone records', 'Related places and events', 'Source records for each connection'. Bottom short bold sentence 'An investigator checks the evidence and records a decision.' Do not invent numeric results.
+
+BOTTOM across right area: a clean thin footer strip with simple arrows and exact text 'Source records → Connected data → Reviewable leads'. Maintain visual continuity with the previous slide. Prefer fewer strong elements over dense microtext. Accurate spelling, large readable type, polished presentation layout. Preserve all requested sections, technologies and five ordered pipeline steps.

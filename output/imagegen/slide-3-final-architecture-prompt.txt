@@ -1,0 +1,67 @@
+Use case: infographic-diagram.
+Create ONE finished, detailed, technically accurate 16:9 presentation slide, target 3840x2160, title "TECHNICAL ARCHITECTURE". Use the attached APPROACH DETAILS slide only as STYLE and BRAND reference. Match its white background, navy blue headline, bold condensed black sans-serif text, pale mint green rounded solution cards, simple green icons, blue arrows and compact layout. Preserve top-left italic "dotGitIgnore" and top-right Smart India Hackathon 2026 logo. Do not include any product name. Do not write CI Intel or Nexus-CI anywhere. Retain only dotGitIgnore and the supplied hackathon branding. All text sharp and readable. No laptops or photos. This is a technical architecture diagram with flowcharts and a relationship graph. Use near full canvas and generous text padding. Do not cut off any content.
+
+LAYOUT: small header 9% height. Left technology column 24% width. Right architecture area 74% width, with two large pipeline lanes above, and graph + reviewer workflow below. Bottom full width control/evaluation strip. Make semantic video lake a prominent titled lane, not a tiny side note.
+
+LEFT COLUMN title "TECHNOLOGY INVENTORY". Three visually separate groups with status labels.
+"ACTIVE PROTOTYPE"
+"HTML · CSS · JavaScript / JSX"
+"React 18 · React DOM"
+"React Router 6.3 · History 5"
+"Babel Standalone 6 · Tailwind CDN"
+"Forms · Container Queries · SVG"
+"IBM Plex Sans · JetBrains Mono"
+"Material Symbols"
+"REPO TOOLING / OLDER FRONTEND"
+"Node.js / npm · Vite · TypeScript"
+"React 19 · React Flow · Radix Dialog"
+"Phosphor Icons · jsPDF · Fontsource"
+"Vitest · Playwright"
+"PROPOSED BACKEND"
+"Python · FastAPI · ETL"
+"OCR · Multilingual NLP / NER"
+"LLMs · GraphRAG · Graphiti"
+"Neo4j · PostgreSQL · Object storage"
+"Video embeddings · Vector index"
+"Docker · On-prem deployment"
+Small note "Video model and vector database: not selected."
+
+MAIN DIAGRAM top lane title "RECORDS → TEMPORAL KNOWLEDGE GRAPH  |  PROPOSED".
+Four left-to-right pale mint boxes with clear blue arrows:
+1 "Authorized inputs" / "CCTNS / ICJS, FIRs, statements, CDRs, payments, registries, permitted OSINT"
+2 "Ingest & preserve" / "Validate → hash originals → attach source, case, time and access scope"
+3 "Extract & resolve" / "OCR → multilingual entities → relationships → candidate entity matches"
+4 "Temporal graph" / "Graphiti + Neo4j" / "Entities, dated links and source references"
+Small storage strip below: "Originals: Object storage     Metadata: PostgreSQL".
+Keep room for a visible output arrow down into shared query services.
+
+MAIN DIAGRAM second lane title "SEMANTIC VIDEO LAKE  |  PROPOSED".
+Five compact boxes left to right:
+"Camera recordings" / "Original footage + hash"
+→ "Segment video" / "Clips, keyframes, time ranges"
+→ "Describe & encode" / "Visual descriptions, OCR, embeddings"
+→ "Index" / "Vector index + camera / time metadata"
+→ "Retrieve clips" / "Meaning + location + time filters"
+Thin supporting line below lane: "Keep original footage in object storage; link each result to its source and exact time range."
+Clearly connect graph lane and video retrieval lane into a shared service bar:
+"FastAPI + scoped queries → Graph analytics + evidence-grounded GraphRAG → Investigator workspace".
+Keep query services distinct from ingest; arrows must mean real data/query flow, not arbitrary decoration.
+
+LOWER MAIN AREA left 42% panel title "EVIDENCE RELATIONSHIPS".
+Draw readable small graph: Case A — Person — Phone — Case B. Person also linked to Account and Vehicle. Vehicle dashed amber edge to Video segment. Video segment solid edges to Camera and Original recording. Label original-recording edge "time range". All node labels readable, no overlapping edges.
+Legend "Solid: recorded    Dashed: suggested".
+Metadata line "Source ID · timestamp · case ID · confidence · access scope".
+
+LOWER MAIN AREA right 56% panel title "INVESTIGATOR WORKFLOW".
+Five small cards with arrows in exact order:
+"Case overview" → "Case connections" → "Camera search" → "Timeline" → "Review".
+Use two neat rows if needed, with unambiguous continuous arrow.
+From Review branch to green "Approve lead" → "Report + audit record"; and amber "Reject / correct" → "Correction queue". No automatic model retraining arrow.
+Supporting line "Investigators check sources and record a reason."
+
+BOTTOM STRIP:
+"PROPOSED CONTROLS: Case-scoped RBAC / ABAC · Masking · Encryption · Provenance · Audit history · Retention"
+"EVALUATION PLAN: Extraction accuracy · Link precision / recall · Source coverage · Video retrieval relevance · Query latency"
+Visible status footer exact: "Current prototype uses sample data; backend and video lake are proposed."
+
+Text hierarchy: large navy page title, clear navy section headers, bold black node titles, short readable secondary lines. Technologies are inventory not marketing badges. Warm amber only for suggested matches and correction path. All components must fit without clipping. Preserve exact technology spelling and workflow order. Do not invent vendor names, production integrations, automatic guilt scoring, completed model training or achieved benchmarks. This slide replaces a simplistic technical slide with the specified complete architecture.

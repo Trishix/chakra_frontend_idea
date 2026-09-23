@@ -1,0 +1,14 @@
+Use case: ui-mockup
+Create a polished, easy-to-understand desktop-only CI Intel product showcase, wide 16:9 landscape, ideally 3840x2160.
+The four supplied images are actual screenshots from http://localhost:5175/ and are the authoritative UI visual references. Image 1: Case overview. Image 2: Case connections. Image 3: Camera search. Image 4: Evidence timeline. Preserve their navy top headers, white left navigation, pale slate content backgrounds, blue buttons, and existing website identity. Screens should closely resemble these real screenshots, not an invented app.
+Composition: white presentation background; compact CI Intel shield and wordmark upper left; large clean headline 'See the whole case.' with 'whole case.' blue. Subtitle 'Connect records. Find footage. Review evidence.' Below header arrange exactly FOUR equal-sized front-facing silver MacBook-style laptop frames in a balanced 2 by 2 grid. All four screens large, crisp, evenly aligned and uncropped. No mobile devices, no phones, no tablets, no additional device or decorative graph above them. Subtle realistic shadows, slim bezels, restrained premium presentation. Use most of the canvas for the four devices and their captions.
+Top left laptop shows reference 1 case overview, recognizable summary cards and leads for review.
+Top right laptop shows reference 2 case connections, recognizable central person node with phone, case, account, vehicle and camera nodes and right detail panel.
+Bottom left laptop shows reference 3 camera search, recognizable large CCTV image with cyan detection rectangle, search bar and two matching footage cards.
+Bottom right laptop shows reference 4 evidence timeline, recognizable numbered evidence steps, two amber review cards and a right review panel.
+Under each device place a short readable caption in large navy type and one supporting line in slate. Exact captions:
+'01  Case overview' / 'See the key details in one place.'
+'02  Case connections' / 'Find links between people and records.'
+'03  Camera search' / 'Find footage linked to the case.'
+'04  Evidence timeline' / 'Follow each event back to its source.'
+Typography: clean bold sans serif, large enough to understand at a glance. Keep the interface navigation and layout faithful to screenshot references. In-device small secondary text can be visually subordinate; external captions must be perfectly legible. Overall image should feel like a clear hackathon product demo slide, with authentic current website screens in desktop devices. Avoid dense marketing copy, jargon, AI badges, compliance claims outside the screenshots, gradients, floating decorative elements, dark poster backgrounds, dramatic perspective, overlapping devices or tiny laptops. No mobile devices anywhere.

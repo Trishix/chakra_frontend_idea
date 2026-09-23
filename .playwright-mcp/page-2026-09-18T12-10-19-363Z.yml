@@ -1,0 +1,319 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - generic [ref=e7]: Cases
+        - generic [ref=e8]: NZ-04
+      - navigation [ref=e9]:
+        - link "dashboard Case overview 14" [ref=e10] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e11]:
+            - generic [ref=e12]: dashboard
+            - text: Case overview
+          - generic [ref=e13]: "14"
+        - link "hub Case connections 10" [ref=e14] [cursor=pointer]:
+          - /url: /network-graph
+          - generic [ref=e15]:
+            - generic [ref=e16]: hub
+            - text: Case connections
+          - generic [ref=e17]: "10"
+        - link "fact_check Evidence timeline 102" [ref=e18] [cursor=pointer]:
+          - /url: /evidence-chain
+          - generic [ref=e19]:
+            - generic [ref=e20]: fact_check
+            - text: Evidence timeline
+          - generic [ref=e21]: "102"
+        - link "videocam Camera search 3 alerts" [ref=e22] [cursor=pointer]:
+          - /url: /surveillance-ai
+          - generic [ref=e23]:
+            - generic [ref=e24]: videocam
+            - text: Camera search
+          - generic "3 alerts" [ref=e25]: "3"
+        - link "timeline Event timeline 89" [ref=e26] [cursor=pointer]:
+          - /url: /event-matrix
+          - generic [ref=e27]:
+            - generic [ref=e28]: timeline
+            - text: Event timeline
+          - generic [ref=e29]: "89"
+        - link "approval_delegation Review leads 7 pending" [ref=e30] [cursor=pointer]:
+          - /url: /ai-lead-queue
+          - generic [ref=e31]:
+            - generic [ref=e32]: approval_delegation
+            - text: Review leads
+          - generic "7 pending" [ref=e33]: "7"
+        - link "policy Evidence history Synced" [ref=e34] [cursor=pointer]:
+          - /url: /custody-audit
+          - generic [ref=e35]:
+            - generic [ref=e36]: policy
+            - text: Evidence history
+          - generic [ref=e37]: Synced
+    - generic [ref=e39]:
+      - generic [ref=e40]: verified_user
+      - generic [ref=e41]:
+        - generic [ref=e42]: Ledger status
+        - generic [ref=e43]: "Block #88921 • Signed"
+  - generic [ref=e44]:
+    - banner [ref=e45]:
+      - generic [ref=e46]:
+        - generic [ref=e47]:
+          - generic [ref=e49]: security
+          - generic [ref=e51]: CI Intel
+        - generic [ref=e52]:
+          - generic [ref=e53]: FIR-409/2026/NZ
+          - generic [ref=e54]: State vs. Syndicate 11
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - generic: search
+          - textbox "Search case records" [ref=e57]
+        - generic [ref=e60]: RV
+    - main [ref=e61]:
+      - generic [ref=e63]:
+        - generic [ref=e64]: S-2 RESTRICTED
+        - generic [ref=e65]:
+          - text: "Section 65B Indian Evidence Act signed. Session:"
+          - strong [ref=e66]: 0x8F9C...44A1
+      - generic [ref=e67]:
+        - generic [ref=e68]:
+          - generic [ref=e69]:
+            - generic [ref=e70]:
+              - generic [ref=e71]:
+                - generic [ref=e72]: FIR-409/2026/NZ
+                - generic [ref=e73]: PS Special Cell, New Delhi
+                - generic [ref=e74]:
+                  - generic [ref=e75]: schedule
+                  - text: Active 18m ago (ISBT OCR Match)
+              - heading "State vs. Tariq Ahmed @ Doctor & Syndicate 11" [level=1] [ref=e76]
+              - paragraph [ref=e77]: "SECTIONS: IPC 120B, 420; NDPS Act Sec. 21, 29; IT Act Sec. 66D"
+            - generic [ref=e79]:
+              - generic [ref=e80]: Filing Window
+              - generic [ref=e81]:
+                - generic [ref=e82]: "28"
+                - generic [ref=e83]: / 90 Days
+          - generic [ref=e86]:
+            - generic [ref=e87]:
+              - generic [ref=e88]: Lead Officers
+              - generic [ref=e89]: Insp. Rajesh Varma
+              - generic [ref=e90]: DySP S. Mathur
+            - generic [ref=e91]:
+              - generic [ref=e92]: Jurisdiction
+              - generic [ref=e93]: NCR & Transit
+              - generic [ref=e94]: Delhi-Haryana-UP
+            - generic [ref=e95]:
+              - generic [ref=e96]: Linked FIRs
+              - generic [ref=e97]:
+                - generic [ref=e98]: "14"
+                - generic [ref=e99]: cases (4 across states)
+            - generic [ref=e100]:
+              - generic [ref=e101]: Call records
+              - generic [ref=e102]:
+                - generic [ref=e103]: "42"
+                - generic [ref=e104]: files (1.82M records)
+            - generic [ref=e105]:
+              - generic [ref=e106]: Seized Devices
+              - generic [ref=e107]:
+                - generic [ref=e108]: "7"
+                - generic [ref=e109]: phones (3 at the lab)
+            - generic [ref=e110]:
+              - generic [ref=e111]: Accounts & cameras
+              - generic [ref=e112]:
+                - generic [ref=e113]: "19"
+                - generic [ref=e114]: accounts • 11 cameras
+        - generic [ref=e115]:
+          - generic [ref=e116]:
+            - generic [ref=e117]:
+              - generic [ref=e118]:
+                - generic [ref=e119]:
+                  - generic [ref=e120]: psychology
+                  - heading "Leads for review" [level=2] [ref=e121]
+                - generic [ref=e123]:
+                  - strong [ref=e124]: "3"
+                  - text: pending review
+              - generic [ref=e125]:
+                - generic [ref=e126]:
+                  - generic [ref=e127]:
+                    - generic [ref=e128]:
+                      - generic [ref=e129]: "#L-108"
+                      - generic [ref=e130]: Telecom Correlation
+                      - generic [ref=e131]: 94.2% Proximity
+                    - generic [ref=e132]: 42m ago
+                  - generic [ref=e133]:
+                    - heading "Related item +91 98102-44109" [level=3] [ref=e134]
+                    - paragraph [ref=e135]: The same device appears in FIR-112/2025 from Faridabad. Both records show activity near tower 404-10-8831 during the same 22-minute period.
+                  - generic [ref=e136]:
+                    - generic [ref=e137]:
+                      - generic [ref=e138]: Azimuth 140°
+                      - generic [ref=e139]: "IMEI: 8642010..."
+                      - generic [ref=e140]: 6 Overlaps
+                    - generic [ref=e141]:
+                      - link "hub Graph" [ref=e142] [cursor=pointer]:
+                        - /url: /network-graph
+                        - generic [ref=e143]: hub
+                        - text: Graph
+                      - button "Reject" [ref=e144] [cursor=pointer]
+                      - button "check_circle Approve lead" [ref=e145] [cursor=pointer]:
+                        - generic [ref=e146]: check_circle
+                        - text: Approve lead
+                - generic [ref=e147]:
+                  - generic [ref=e148]:
+                    - generic [ref=e149]:
+                      - generic [ref=e150]: "#L-109"
+                      - generic [ref=e151]: Financial Intelligence
+                      - generic [ref=e152]: Timestamp Proximity (±12m)
+                    - generic [ref=e153]: 1h 15m ago
+                  - generic [ref=e154]:
+                    - heading "Related item sharma.enterprises@okaxis" [level=3] [ref=e155]
+                    - paragraph [ref=e156]: Three payments totaling ₹14,50,000 match entries in the Surat ledger SL-91. They occurred within 18 minutes of the reported delivery.
+                  - generic [ref=e157]:
+                    - generic [ref=e158]:
+                      - generic [ref=e159]: Axis Bank Surat
+                      - generic [ref=e160]: SL-91 Ledger
+                      - generic [ref=e161]: NEFT Wire
+                    - generic [ref=e162]:
+                      - link "hub Graph" [ref=e163] [cursor=pointer]:
+                        - /url: /network-graph
+                        - generic [ref=e164]: hub
+                        - text: Graph
+                      - button "Reject" [ref=e165] [cursor=pointer]
+                      - button "check_circle Approve lead" [ref=e166] [cursor=pointer]:
+                        - generic [ref=e167]: check_circle
+                        - text: Approve lead
+                - generic [ref=e168]:
+                  - generic [ref=e169]:
+                    - generic [ref=e170]:
+                      - generic [ref=e171]: "#L-110"
+                      - generic [ref=e172]: ANPR Surveillance
+                      - generic [ref=e173]: Optical Match
+                    - generic [ref=e174]: 2h 40m ago
+                  - generic [ref=e175]:
+                    - heading "Related item DL-1C-AA-0921" [level=3] [ref=e176]
+                    - paragraph [ref=e177]: A silver Hyundai Creta passed lane 04 at Kherki Daula Toll toward Jaipur, 14 minutes after the call. Check the plate against the case vehicle.
+                  - generic [ref=e178]:
+                    - generic [ref=e179]:
+                      - generic [ref=e180]: "Camera: NHAI-KD-L04"
+                      - generic [ref=e181]: Lane 04
+                      - generic [ref=e182]: Outbound
+                    - generic [ref=e183]:
+                      - link "hub Graph" [ref=e184] [cursor=pointer]:
+                        - /url: /network-graph
+                        - generic [ref=e185]: hub
+                        - text: Graph
+                      - button "Reject" [ref=e186] [cursor=pointer]
+                      - button "check_circle Approve lead" [ref=e187] [cursor=pointer]:
+                        - generic [ref=e188]: check_circle
+                        - text: Approve lead
+            - generic [ref=e189]:
+              - generic [ref=e190]:
+                - generic [ref=e191]:
+                  - generic [ref=e192]: fact_check
+                  - heading "Recent activity" [level=2] [ref=e193]
+                - generic [ref=e194]: Import history
+              - table [ref=e196]:
+                - rowgroup [ref=e197]:
+                  - row "Time / Token Type Description Source Hash" [ref=e198]:
+                    - columnheader "Time / Token" [ref=e199]
+                    - columnheader "Type" [ref=e200]
+                    - columnheader "Description" [ref=e201]
+                    - columnheader "Source" [ref=e202]
+                    - columnheader "Hash" [ref=e203]
+                - rowgroup [ref=e204]:
+                  - 'row "14:38:12 03 Mar 2026 CDR DUMP Bharti Airtel NCR Circle CDR Batch #4 84,200 records indexed for 4 target IMSIs LE-CMS-GATEWAY b91f...7c22" [ref=e205]':
+                    - cell "14:38:12 03 Mar 2026" [ref=e206]:
+                      - text: 14:38:12
+                      - generic [ref=e207]: 03 Mar 2026
+                    - cell "CDR DUMP" [ref=e208]
+                    - 'cell "Bharti Airtel NCR Circle CDR Batch #4 84,200 records indexed for 4 target IMSIs" [ref=e209]':
+                      - generic [ref=e210]: "Bharti Airtel NCR Circle CDR Batch #4"
+                      - text: 84,200 records indexed for 4 target IMSIs
+                    - cell "LE-CMS-GATEWAY" [ref=e211]
+                    - cell "b91f...7c22" [ref=e212]
+                  - row "12:15:04 03 Mar 2026 TOWER DUMP Sector 21-C Faridabad Triangulation Complete Cell ID matrix parsed with 12 suspect flags DOT-LSA-NZ 4f89...01de" [ref=e213]:
+                    - cell "12:15:04 03 Mar 2026" [ref=e214]:
+                      - text: 12:15:04
+                      - generic [ref=e215]: 03 Mar 2026
+                    - cell "TOWER DUMP" [ref=e216]
+                    - cell "Sector 21-C Faridabad Triangulation Complete Cell ID matrix parsed with 12 suspect flags" [ref=e217]:
+                      - generic [ref=e218]: Sector 21-C Faridabad Triangulation Complete
+                      - text: Cell ID matrix parsed with 12 suspect flags
+                    - cell "DOT-LSA-NZ" [ref=e219]
+                    - cell "4f89...01de" [ref=e220]
+                  - 'row "10:02:49 03 Mar 2026 TRANSCRIPT Target Intercept Audio Session #T-882 PMLA S.17 compliant, Punjabi/Hindi translation INTELL-UNIT-6 8aa3...5e41" [ref=e221]':
+                    - cell "10:02:49 03 Mar 2026" [ref=e222]:
+                      - text: 10:02:49
+                      - generic [ref=e223]: 03 Mar 2026
+                    - cell "TRANSCRIPT" [ref=e224]
+                    - 'cell "Target Intercept Audio Session #T-882 PMLA S.17 compliant, Punjabi/Hindi translation" [ref=e225]':
+                      - generic [ref=e226]: "Target Intercept Audio Session #T-882"
+                      - text: PMLA S.17 compliant, Punjabi/Hindi translation
+                    - cell "INTELL-UNIT-6" [ref=e227]
+                    - cell "8aa3...5e41" [ref=e228]
+              - generic [ref=e229]:
+                - generic [ref=e230]: Showing 3 of 128 ledger records
+                - link "View evidence history arrow_forward" [ref=e231] [cursor=pointer]:
+                  - /url: /evidence-chain
+                  - text: View evidence history
+                  - generic [ref=e232]: arrow_forward
+          - generic [ref=e233]:
+            - generic [ref=e234]:
+              - generic [ref=e235]:
+                - generic [ref=e236]:
+                  - generic [ref=e237]: gavel
+                  - heading "Upcoming deadlines" [level=3] [ref=e238]
+                - generic [ref=e239]: Critical
+              - generic [ref=e240]:
+                - generic [ref=e241]:
+                  - generic [ref=e242]: Charge-Sheet Filing
+                  - generic [ref=e243]: 62 Days
+                  - generic [ref=e244]: Sec. 167(2) CrPC
+                - generic [ref=e245]:
+                  - generic [ref=e246]: Remand Extension
+                  - generic [ref=e247]: 14 Mar 2026
+                  - generic [ref=e248]: Spl Court Patiala House
+            - generic [ref=e249]:
+              - generic [ref=e250]:
+                - generic [ref=e251]:
+                  - generic [ref=e252]: groups
+                  - heading "People in this case" [level=3] [ref=e253]
+                - generic [ref=e254]: 3 people
+              - generic [ref=e255]:
+                - generic [ref=e256]:
+                  - generic [ref=e257]:
+                    - generic [ref=e258]: TA
+                    - generic [ref=e259]:
+                      - generic [ref=e260]: Tariq Ahmed @ 'Doctor'
+                      - generic [ref=e261]: Reported coordinator • NCR/Srinagar
+                  - generic [ref=e262]: In Custody
+                - generic [ref=e263]:
+                  - generic [ref=e264]:
+                    - generic [ref=e265]: VM
+                    - generic [ref=e266]:
+                      - generic [ref=e267]: Vikramaditya Malhotra
+                      - generic [ref=e268]: Logistics & Transport
+                  - generic [ref=e269]: Courier
+                - generic [ref=e270]:
+                  - generic [ref=e271]:
+                    - generic [ref=e272]: SD
+                    - generic [ref=e273]:
+                      - generic [ref=e274]: Sunita Devi
+                      - generic [ref=e275]: Beneficiary / Shell Accts
+                  - generic [ref=e276]: S.41A CrPC
+            - generic [ref=e277]:
+              - generic [ref=e279]:
+                - generic [ref=e280]: token
+                - heading "Tools" [level=3] [ref=e281]
+              - paragraph [ref=e282]: Add call records, notes, or an evidence summary.
+              - generic [ref=e283]:
+                - button "upload_file Import call records Airtel/Jio/Vi" [ref=e284] [cursor=pointer]:
+                  - generic [ref=e285]:
+                    - generic [ref=e286]: upload_file
+                    - generic [ref=e287]: Import call records
+                  - generic [ref=e288]: Airtel/Jio/Vi
+                - button "post_add Add investigation note MHA Sanction" [ref=e289] [cursor=pointer]:
+                  - generic [ref=e290]:
+                    - generic [ref=e291]: post_add
+                    - generic [ref=e292]: Add investigation note
+                  - generic [ref=e293]: MHA Sanction
+                - button "verified Create evidence summary e-Sign" [ref=e294] [cursor=pointer]:
+                  - generic [ref=e295]:
+                    - generic [ref=e296]: verified
+                    - generic [ref=e297]: Create evidence summary
+                  - generic [ref=e298]: e-Sign
